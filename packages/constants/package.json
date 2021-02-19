@@ -1,0 +1,11 @@
+{
+  "name": "@jesse/constants",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p ./",
+    "build:ci": "yarn install && tsc -p ./",
+    "prepublishOnly": "npm run build"
+  },
+  "license": "apache-2.0"
+}
