@@ -1,4 +1,4 @@
-import { GatewayOpcode, GatewayIntentFlags } from "@jesse/constants";
+import { GatewayOpcode, GatewayIntentFlags } from "@wilsonjs/constants";
 import { BasePayload } from "./BasePayload";
 import { UpdateStatusData } from "./dispatch/UpdateStatus";
 

@@ -1,4 +1,4 @@
-import { Snowflake, StickerFormatType } from "@jesse/constants";
+import { Snowflake, StickerFormatType } from "@wilsonjs/constants";
 
 export interface BasicSticker {
     id: Snowflake;

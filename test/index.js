@@ -1,8 +1,8 @@
-import Jesse from "@jesse/client";
+import Wilson from "@wilsonjs/client";
 
-const client = new Jesse;
+const client = new Wilson;
 client.connect("token");
 
 client.on("message", (channel, author, message) => {
-    
+
 });

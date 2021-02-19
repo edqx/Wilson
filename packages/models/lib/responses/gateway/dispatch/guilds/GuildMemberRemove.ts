@@ -1,4 +1,4 @@
-import { Snowflake } from "@jesse/constants";
+import { Snowflake } from "@wilsonjs/constants";
 import { BasicUser } from "../../../basic/User";
 
 export interface GuildMemberRemoveData {

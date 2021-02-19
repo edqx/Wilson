@@ -1,4 +1,4 @@
-import { GatewayOpcode } from "@jesse/constants";
+import { GatewayOpcode } from "@wilsonjs/constants";
 
 export interface BasePayload {
     op: GatewayOpcode;

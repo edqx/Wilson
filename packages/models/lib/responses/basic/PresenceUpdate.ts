@@ -1,4 +1,4 @@
-import { Snowflake, Status } from "@jesse/constants";
+import { Snowflake, Status } from "@wilsonjs/constants";
 import { BasicActivity } from "./Activity";
 import { BasicUser } from "./User";
 

@@ -1,4 +1,4 @@
-import { GatewayVersion } from "@jesse/constants";
+import { GatewayVersion } from "@wilsonjs/constants";
 import { BasicApplication } from "../../../basic/Application";
 import { UnavailableGuild } from "../../../basic/Guild";
 import { BasicUser } from "../../../basic/User";

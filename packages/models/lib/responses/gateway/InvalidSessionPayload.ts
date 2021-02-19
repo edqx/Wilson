@@ -1,4 +1,4 @@
-import { GatewayOpcode } from "@jesse/constants";
+import { GatewayOpcode } from "@wilsonjs/constants";
 import { BasePayload } from "./BasePayload";
 
 export type InvalidSessionPayloadData = boolean;

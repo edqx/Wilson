@@ -1,4 +1,4 @@
-import { MembershipState, Snowflake } from "@jesse/constants";
+import { MembershipState, Snowflake } from "@wilsonjs/constants";
 import { BasicUser } from "./User";
 
 export interface BasicTeamMember {

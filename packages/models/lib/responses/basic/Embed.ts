@@ -1,4 +1,4 @@
-import { ISOTimestamp, EmbedType } from "@jesse/constants";
+import { ISOTimestamp, EmbedType } from "@wilsonjs/constants";
 
 export interface BasicEmbedFooter {
     text: string;

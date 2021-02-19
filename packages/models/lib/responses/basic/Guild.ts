@@ -1,4 +1,4 @@
-import { GuildFeature, ISOTimestamp, PermissionFlags, Snowflake, SystemChannelFlags } from "@jesse/constants";
+import { GuildFeature, ISOTimestamp, PermissionFlags, Snowflake, SystemChannelFlags } from "@wilsonjs/constants";
 import { BasicChannel } from "./Channel";
 import { BasicEmoji } from "./Emoji";
 import { BasicGuildMember } from "./GuildMember";

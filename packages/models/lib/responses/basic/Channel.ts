@@ -1,4 +1,4 @@
-import { Snowflake, ISOTimestamp, ChannelType } from "@jesse/constants";
+import { Snowflake, ISOTimestamp, ChannelType } from "@wilsonjs/constants";
 import { PermissionOverwrite } from "./Overwrite";
 import { BasicUser } from "./User";
 

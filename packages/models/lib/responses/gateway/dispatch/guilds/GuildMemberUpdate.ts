@@ -1,4 +1,4 @@
-import { ISOTimestamp, Snowflake } from "@jesse/constants";
+import { ISOTimestamp, Snowflake } from "@wilsonjs/constants";
 import { BasicUser } from "../../../basic/User";
 
 export interface GuildMemberUpdateData {

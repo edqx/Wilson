@@ -1,4 +1,4 @@
-import { GatewayEvent, GatewayOpcode } from "@jesse/constants";
+import { GatewayEvent, GatewayOpcode } from "@wilsonjs/constants";
 import { BasePayload } from "./BasePayload";
 import {
     HelloData,

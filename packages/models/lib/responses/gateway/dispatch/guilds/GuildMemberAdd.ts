@@ -1,4 +1,4 @@
-import { Snowflake } from "@jesse/constants";
+import { Snowflake } from "@wilsonjs/constants";
 import { BasicGuildMember } from "../../../basic/GuildMember";
 
 export interface GuildMemberAddData extends BasicGuildMember {

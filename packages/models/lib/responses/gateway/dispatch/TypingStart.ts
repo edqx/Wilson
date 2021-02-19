@@ -1,4 +1,4 @@
-import { Snowflake, Timestamp } from "@jesse/constants";
+import { Snowflake, Timestamp } from "@wilsonjs/constants";
 import { BasicGuildMember } from "../../basic/GuildMember";
 
 export interface TypingStartData {

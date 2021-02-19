@@ -1,4 +1,4 @@
-import { Snowflake } from "@jesse/constants";
+import { Snowflake } from "@wilsonjs/constants";
 import { BasicEmoji } from "../../../basic/Emoji";
 
 export interface GuildEmojisUpdateData {

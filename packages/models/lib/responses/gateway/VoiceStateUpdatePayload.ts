@@ -1,4 +1,4 @@
-import { GatewayOpcode, Snowflake } from "@jesse/constants";
+import { GatewayOpcode, Snowflake } from "@wilsonjs/constants";
 import { BasePayload } from "./BasePayload";
 
 export interface VoiceStateUpdatePayloadData {

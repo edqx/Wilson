@@ -1,4 +1,4 @@
-import { GatewayOpcode, Status } from "@jesse/constants";
+import { GatewayOpcode, Status } from "@wilsonjs/constants";
 import { BasicActivity } from "../basic/Activity";
 import { BasePayload } from "./BasePayload";
 

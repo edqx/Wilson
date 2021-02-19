@@ -1,4 +1,4 @@
-import { ActivityType, ActivityFlags, Snowflake, Timestamp } from "@jesse/constants";
+import { ActivityType, ActivityFlags, Snowflake, Timestamp } from "@wilsonjs/constants";
 
 export interface ActivityTimestampData {
     start: Timestamp;

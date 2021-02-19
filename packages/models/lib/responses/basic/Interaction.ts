@@ -1,4 +1,4 @@
-import { InteractionType, Snowflake } from "@jesse/constants";
+import { InteractionType, Snowflake } from "@wilsonjs/constants";
 import { BasicGuildMember } from "./GuildMember";
 
 export interface ApplicationCommandInteractionDataOption {

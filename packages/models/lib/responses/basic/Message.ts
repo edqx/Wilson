@@ -1,4 +1,4 @@
-import { ISOTimestamp, MessageActivityType, MessageFlags, MessageType, Snowflake } from "@jesse/constants";
+import { ISOTimestamp, MessageActivityType, MessageFlags, MessageType, Snowflake } from "@wilsonjs/constants";
 import { BasicAttachment } from "./Attachment";
 import { BasicChannel } from "./Channel";
 import { BasicEmbed } from "./Embed";

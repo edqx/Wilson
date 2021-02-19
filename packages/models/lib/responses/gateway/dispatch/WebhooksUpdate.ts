@@ -1,4 +1,4 @@
-import { Snowflake } from "@jesse/constants";
+import { Snowflake } from "@wilsonjs/constants";
 
 export interface WebhooksUpdateData {
     guild_id: Snowflake;

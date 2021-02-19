@@ -1,4 +1,4 @@
-import { DiscordEpoch } from "@jesse/constants";
+import { DiscordEpoch } from "@wilsonjs/constants";
 import { Snowflake } from "../types";
 
 export function getTimestamp(snowflake: Snowflake) {

@@ -1,4 +1,4 @@
-import { Status } from "@jesse/constants";
+import { Status } from "@wilsonjs/constants";
 
 import { BasicActivity } from "../../basic/Activity";
 

@@ -1,4 +1,4 @@
-import { Snowflake } from "@jesse/constants";
+import { Snowflake } from "@wilsonjs/constants";
 
 export interface InviteDeleteData {
     channel_id: Snowflake;

@@ -1,4 +1,4 @@
-import { ISOTimestamp, Snowflake } from "@jesse/constants";
+import { ISOTimestamp, Snowflake } from "@wilsonjs/constants";
 
 export interface ChannelPinsUpdateData {
     guild_id: Snowflake;

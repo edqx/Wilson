@@ -1,4 +1,4 @@
-import { PremiumType, Snowflake, UserFlags } from "@jesse/constants";
+import { PremiumType, Snowflake, UserFlags } from "@wilsonjs/constants";
 
 export interface BasicUser {
     id: Snowflake;

@@ -1,4 +1,4 @@
-import { Snowflake } from "@jesse/constants";
+import { Snowflake } from "@wilsonjs/constants";
 import { BasicRole } from "./Role";
 import { BasicUser } from "./User";
 
