@@ -5,10 +5,11 @@
   "scripts": {
     "build": "tsc -p ./",
     "build:ci": "yarn install && tsc -p ./",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "yarn build"
   },
   "license": "apache-2.0",
   "dependencies": {
     "@jesse/constants": "^0.0.1"
-  }
+  },
+  "gitHead": "dffce5f556e1348c456f0c753716edde7abe1577"
 }
