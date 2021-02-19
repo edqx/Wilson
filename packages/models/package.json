@@ -9,6 +9,6 @@
   },
   "license": "apache-2.0",
   "dependencies": {
-    "@jesse/constants": "0.0.1"
+    "@jesse/constants": "^0.0.1"
   }
 }
