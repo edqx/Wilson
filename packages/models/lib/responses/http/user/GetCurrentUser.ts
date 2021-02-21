@@ -1,3 +1,3 @@
-import { BasicUser } from "../../basic";
+import { BasicUser } from "../../../basic";
 
 export type GetCurrentUserResponse = BasicUser;

@@ -1,3 +1,3 @@
-import { BasicRole } from "../../basic";
+import { BasicRole } from "../../../basic";
 
 export type GetGuildRolesResponse = BasicRole[];

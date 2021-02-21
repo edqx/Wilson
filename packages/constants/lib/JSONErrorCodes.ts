@@ -1,4 +1,4 @@
-export enum JSONErrorCodes {
+export enum JSONErrorCode {
     GeneralError,
     UnknownAccount = 10001,
     UnknownApplication,

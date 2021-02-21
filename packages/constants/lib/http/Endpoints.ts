@@ -1,4 +1,4 @@
-export const Endpoints = {
+export const ApiEndpoints = {
     GetGateway: "/gateway",
     GetBotGateway: "/gateway/bot",
 
@@ -11,12 +11,12 @@ export const Endpoints = {
     GetChannelMessage: "/channels/{channel.id}/{message.id}",
     CreateMessage: "/channels/{channel.id}/messages",
     CrosspostMessage: "/channels/{channel.id}/messages/{message.id}/crosspost",
-    CreateReaction: "/channels/{channel.id}/messages/{message.id}/reactions/:emoji/@me",
-    DeleteOwnReaction: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me",
-    DeleteUserReaction: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me/:user.id}",
-    GetReactions: "/channels/{channel.id}/messages/{message.id}/reactions/:emoji",
+    CreateReaction: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}/@me",
+    DeleteOwnReaction: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}/@me",
+    DeleteUserReaction: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}/@me/:user.id}",
+    GetReactions: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}",
     DeleteAllReactions: "/channels/{channel.id}/messages/{message.id}/reactions",
-    DeleteAllReactionsForEmoji: "/channels/{channel.id}/messages/{message.id}/reactions/:emoji",
+    DeleteAllReactionsForEmoji: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}",
     EditMessage: "/channels/{channel.id}/messages/{message.id}",
     DeleteMessage: "/channels/{channel.id}/messages/{message.id}",
     BulkDeleteMessages: "/channels/{channel.id}/messages/bulk-delete",
@@ -115,4 +115,18 @@ export const Endpoints = {
     ExecuteGithubCompatableWebhook: "/webhooks/{webhook.id}/{webhook.token}/github",
     EditWebhookMessage: "/webhooks/{webhook.id}/{webhook.token}",
     DeleteWebhookmessage: "/webhooks/{webhook.id}/{webook.token}/messages/{message.id}"
+} as const;
+
+export const CdnEndpoints = {
+    CustomEmoji: "/emojis/{emoji.id}.{fmt}",
+    GuildIcon: "/icons/{guild.id}/{guild_icon}.{fmt}",
+    GuildSplash: "/splashes/{guild.id}/{guild_splash}{fmt}",
+    GuildDiscoverySplash: "/discovery-splashes/{guild.id}/{guild_discovery_splash}.{fmt}",
+    GuildBanner: "/banners/{guild.id}/{guild_banner}.{fmt}",
+    DefaultUserAvatar: "/embed/avatars/{user_discriminator}.{fmt}",
+    UserAvatar: "/avatars/{user.id}/{user_avatar}.{fmt}",
+    ApplicationIcon: "/app-icon/{application.id}/{icon}.{fmt}",
+    ApplicationAsset: "/app-assets/{application.id}/{asset_id}.{fmt}",
+    AchievementIcon: "/app-assets/{application.id}/{achievement_id}/icons/icon_hash.{fmt}",
+    TeamIcon: "/team-icons/{team.id}/{team_icon}.{fmt}",
 } as const;

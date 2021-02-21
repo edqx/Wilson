@@ -1,3 +1,3 @@
-import { BasicTemplate } from "../../basic";
+import { BasicTemplate } from "../../../basic";
 
 export type SyncGuildTemplateResponse = BasicTemplate;

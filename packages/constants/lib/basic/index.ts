@@ -1,3 +1,4 @@
+export * from "./AllowedMentionTypes";
 export * from "./ApplicationCommandOptionTypes";
 export * from "./AuditLogChangeKeys";
 export * from "./AuditLogEvents";
@@ -7,7 +8,10 @@ export * from "./EmbedTypes";
 export * from "./ExpireBehaviours";
 export * from "./ExplicitContentFilterLevels";
 export * from "./GuildFeatures";
+export * from "./IntegrationExpireBehaviours";
 export * from "./IntegrationVisibilities";
+export * from "./InteractionApplicationCommandCallbackDataFlags";
+export * from "./InteractionResponseType";
 export * from "./InteractionTypes";
 export * from "./MembershipStates";
 export * from "./MessageActivityTypes";

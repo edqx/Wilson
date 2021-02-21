@@ -1,6 +1,6 @@
 import { Status } from "@wilsonjs/constants";
 
-import { BasicActivity } from "../../basic";
+import { BasicActivity } from "../../../basic";
 
 export interface UpdateStatusData {
     since?: number;

@@ -1,3 +1,3 @@
-import { BasicWebhook } from "../../basic";
+import { BasicWebhook } from "../../../basic";
 
 export type GetChannelWebhooksResponse = BasicWebhook[];

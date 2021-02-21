@@ -1,3 +1,3 @@
-import { BasicVoiceRegion } from "../../basic/VoiceRegion";
+import { BasicVoiceRegion } from "../../../basic/VoiceRegion";
 
 export type GetGuildVoiceRegionsResponse = BasicVoiceRegion[];

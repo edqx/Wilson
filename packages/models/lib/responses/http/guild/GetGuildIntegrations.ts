@@ -1,3 +1,3 @@
-import { BasicIntegration } from "../../basic";
+import { BasicIntegration } from "../../../basic";
 
 export type GetGuildIntegrations = BasicIntegration[];

@@ -1,3 +1,3 @@
-import { BasicChannel } from "../../basic";
+import { BasicChannel } from "../../../basic";
 
 export type DeleteChannelResponse = BasicChannel;

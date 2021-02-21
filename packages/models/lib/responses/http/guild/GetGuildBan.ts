@@ -1,3 +1,3 @@
-import { BasicBan } from "../../basic";
+import { BasicBan } from "../../../basic";
 
 export type GetGuildBanResponse = BasicBan;

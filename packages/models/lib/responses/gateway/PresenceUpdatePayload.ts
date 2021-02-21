@@ -1,5 +1,5 @@
 import { GatewayOpcode, Status } from "@wilsonjs/constants";
-import { BasicActivity } from "../basic";
+import { BasicActivity } from "../../basic";
 import { BasePayload } from "./BasePayload";
 
 export interface PresenceUpdatePayloadData {

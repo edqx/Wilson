@@ -38,5 +38,8 @@ export enum GatewayEvent {
     VoiceStateUpdate = "VOICE_STATE_UPDATE",
     VoiceServerUpdate = "VOICE_SERVER_UPDATE",
     WebhooksUpdate = "WEBHOOKS_UPDATE",
+    ApplicationCommandCreate = "APPLICATION_COMMAND_CREATE",
+    ApplicationCommandUpdate = "APPLICATION_COMMAND_UPDATE",
+    ApplicationCommandDelete = "APPLICATION_COMMAND_DELETE",
     InteractionCreate = "INTERACTION_CREATE"
 }

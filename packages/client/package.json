@@ -9,13 +9,15 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@discordjs/collection": "^0.1.6",
     "@wilsonjs/constants": "^0.0.2",
     "@wilsonjs/models": "^0.0.2",
     "emittery": "^0.8.1",
     "erlpack": "^0.1.3",
     "form-data": "^4.0.0",
     "node-fetch": "^2.6.1",
-    "ws": "^7.4.3"
+    "ws": "^7.4.3",
+    "zlib-sync": "^0.1.7"
   },
   "gitHead": "1c79dd3220e79f5a0216ce3dacedab2730e66305",
   "devDependencies": {
