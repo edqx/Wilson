@@ -1,3 +1,3 @@
-import { BasicInteraction } from "../../basic
+import { BasicInteraction } from "../../basic";
 
 export type InteractionCreateData = BasicInteraction;

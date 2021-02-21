@@ -1,3 +1,3 @@
-import { BasicGuild } from "../../../basic
+import { BasicGuild } from "../../../basic";
 
 export type GuildUpdateData = BasicGuild;

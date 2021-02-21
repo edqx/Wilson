@@ -1,5 +1,5 @@
 import { Snowflake, ISOTimestamp, ChannelType } from "@wilsonjs/constants";
-import { PermissionOverwrite } from "./Overwrite";
+import { BasicPermissionOverwrite } from "./Overwrite";
 import { BasicUser } from "./User";
 
 export interface BasicChannel {
@@ -7,7 +7,7 @@ export interface BasicChannel {
     type: ChannelType;
     guild_id?: Snowflake;
     position?: number;
-    permission_overwrites?: PermissionOverwrite[];
+    permission_overwrites?: BasicPermissionOverwrite[];
     name?: string;
     topic?: string;
     nsfw?: boolean;
