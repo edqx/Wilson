@@ -1,5 +1,5 @@
 import { Snowflake } from "@wilsonjs/constants";
-import { BasicUser } from "../../../basic/User";
+import { BasicUser } from "../../../basic
 
 export interface GuildMemberRemoveData {
     guild_id: Snowflake;

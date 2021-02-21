@@ -1,5 +1,5 @@
 import { Snowflake, Timestamp } from "@wilsonjs/constants";
-import { BasicUser } from "../../../basic/User";
+import { BasicUser } from "../../../basic
 
 export interface InviteCreateData {
     channel_id: Snowflake;

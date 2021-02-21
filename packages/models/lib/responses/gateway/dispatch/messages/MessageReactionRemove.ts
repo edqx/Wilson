@@ -1,5 +1,5 @@
 import { Snowflake } from "@wilsonjs/constants";
-import { BasicEmoji } from "../../../basic/Emoji";
+import { BasicEmoji } from "../../../basic
 
 export interface MessageReactionRemoveData {
     user_id: Snowflake;

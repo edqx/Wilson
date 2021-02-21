@@ -4,7 +4,7 @@ export enum GatewayOpcode {
     Identify,
     PresenceUpdate,
     VoiceStateUpdate,
-    Resume,
+    Resume = 6,
     Reconnect,
     RequestGuildMembers,
     InvalidSession,

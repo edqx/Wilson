@@ -22,6 +22,6 @@ export interface IdentifyPayloadData {
 }
 
 export interface IdentifyPayload extends BasePayload {
-    opcode: GatewayOpcode.Identify;
+    op: GatewayOpcode.Identify;
     d: IdentifyPayloadData;
 }

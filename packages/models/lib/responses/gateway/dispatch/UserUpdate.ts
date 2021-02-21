@@ -1,3 +1,3 @@
-import { BasicUser } from "../../basic/User";
+import { BasicUser } from "../../basic
 
 export type UserUpdateData = BasicUser;

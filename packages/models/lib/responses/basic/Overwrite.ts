@@ -1,6 +1,6 @@
 import { Snowflake } from "@wilsonjs/constants";
 
-export interface PermissionOverwrite {
+export interface BasicPermissionOverwrite {
     id: Snowflake;
     type: number;
     allow: string;

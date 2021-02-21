@@ -1,3 +1,3 @@
-import { UnavailableGuild } from "../../../basic/Guild";
+import { UnavailableGuild } from "../../../basic
 
 export type GuildDeleteData = UnavailableGuild;

@@ -1,6 +1,6 @@
 import { Snowflake } from "@wilsonjs/constants";
-import { BasicGuildMember } from "../../../basic/GuildMember";
-import { BasicPresenceUpdate } from "../../../basic/PresenceUpdate";
+import { BasicGuildMember } from "../../../basic
+import { BasicPresenceUpdate } from "../../../basic
 
 export interface GuildMembersChunkData {
     guild_id: Snowflake;

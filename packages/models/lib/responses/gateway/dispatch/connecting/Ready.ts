@@ -1,7 +1,7 @@
 import { GatewayVersion } from "@wilsonjs/constants";
-import { BasicApplication } from "../../../basic/Application";
-import { UnavailableGuild } from "../../../basic/Guild";
-import { BasicUser } from "../../../basic/User";
+import { BasicApplication } from "../../../basic
+import { UnavailableGuild } from "../../../basic
+import { BasicUser } from "../../../basic
 import { ShardIdentifyTuple } from "../../IdentifyPayload";
 
 export interface ReadyData {

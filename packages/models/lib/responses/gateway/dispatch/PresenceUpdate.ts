@@ -1,3 +1,3 @@
-import { BasicPresenceUpdate } from "../../basic/PresenceUpdate";
+import { BasicPresenceUpdate } from "../../basic
 
 export type PresenceUpdateData = BasicPresenceUpdate;

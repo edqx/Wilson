@@ -2,6 +2,6 @@ import { GatewayOpcode } from "@wilsonjs/constants";
 import { BasePayload } from "./BasePayload";
 
 export interface HeartbeatPayload extends BasePayload {
-    opcode: GatewayOpcode.Heartbeat;
+    op: GatewayOpcode.Heartbeat;
     d: number;
 }
