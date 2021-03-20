@@ -114,7 +114,24 @@ export const ApiEndpoints = {
     ExecuteSlackCompatableWebhook: "/webhooks/{webhook.id}/{webhook.token}/slack",
     ExecuteGithubCompatableWebhook: "/webhooks/{webhook.id}/{webhook.token}/github",
     EditWebhookMessage: "/webhooks/{webhook.id}/{webhook.token}",
-    DeleteWebhookmessage: "/webhooks/{webhook.id}/{webook.token}/messages/{message.id}"
+    DeleteWebhookmessage: "/webhooks/{webhook.id}/{webook.token}/messages/{message.id}",
+
+    GetGlobalApplicationCommands: "/applications/{application.id}/commands",
+    CreateGlobalApplicationCommand: "/applications/{application.id}/commands",
+    GetGlobalApplicationCommand: "/applications/{application.id}/commands/{command.id}",
+    EditGlobalApplicationCommand: "/applications/{application.id}/commands/{command.id}",
+    DeleteGlobalApplicationCommand: "/applications/{application.id}/commands/{command.id}",
+    GetGuildApplicationCommands: "/applications/{application.id}/guilds/{guild.id}/commands",
+    CreateGuildApplicationCommands: "/applications/{application.id}/guilds/{guild.id}/commands",
+    GetGuildApplicationCommand: "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
+    EditGuildApplicationCommands: "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
+    DeleteGuildApplicationCommands: "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
+    CreateInteractionResponse: "/interactions/{interaction.id}/{interaction.token}/callback",
+    EditOriginalInteractionResponse: "/interactions/{interaction.id}/{interaction.token}/messages/@original",
+    DeleteOriginalInteractionResponse: "/interactions/{interaction.id}/{interaction.token}/messages/@original",
+    CreateFollowupMessage: "/webhooks/{application.id}/{interaction.token}",
+    EditFollowupMessage: "/webhooks/{application.id}/{interaction.token}/messages/{message.id}",
+    DeleteFollowupMessage: "/webhooks/{application.id}/{interaction.token}/messages/{message.id}"
 } as const;
 
 export const CdnEndpoints = {
