@@ -19,7 +19,7 @@
     "ws": "^7.4.3",
     "zlib-sync": "^0.1.7"
   },
-  "gitHead": "1c79dd3220e79f5a0216ce3dacedab2730e66305",
+  "gitHead": "2703de606865f9670d541c4f9061438055846090",
   "devDependencies": {
     "@types/form-data": "^2.5.0",
     "@types/node-fetch": "^2.5.8",
