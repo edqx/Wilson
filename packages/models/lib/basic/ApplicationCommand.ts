@@ -45,4 +45,5 @@ export interface BasicApplicationCommand {
     application_id: Snowflake;
     name: string;
     description: string;
+    options?: BasicApplicationCommandOption[];
 }
