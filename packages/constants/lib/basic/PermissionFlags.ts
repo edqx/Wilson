@@ -31,4 +31,4 @@ export const PermissionFlag = {
     ManageEmojis: 1n << 29n
 } as const;
 
-export type PermissionFlags = bigint;
+export type PermissionFlags = string;
