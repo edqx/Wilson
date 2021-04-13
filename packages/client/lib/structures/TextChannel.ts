@@ -1,10 +1,10 @@
 import { ApiEndpoints, ChannelType, PermissionOverwriteType, Snowflake } from "@wilsonjs/constants";
-import { BasicChannel, BasicMessage, CreateMessageRequest } from "@wilsonjs/models";
-import FormData from "form-data";
+import { BasicChannel, BasicMessage } from "@wilsonjs/models";
 
 import { Cache, Resolvable } from "../cache/Cache";
-import { HTTPResponse as HttpResponse, WilsonClient } from "../Client";
+import { HttpResponse, WilsonClient } from "../Client";
 import { AttachmentInfo, MessageOptions } from "../models/MessageOptions";
+import { createMessageForm } from "../utils";
 import { Channel } from "./Channel";
 import { MemberOverwrite } from "./MemberOverwrite";
 import { Message } from "./Message";
@@ -85,41 +85,7 @@ export class TextChannel extends Channel {
     }
 
     async send(content: string|MessageOptions, files: AttachmentInfo[] = []) {
-        const form = new FormData;
-        const payload: Partial<CreateMessageRequest> = {};
-
-        if (typeof content === "string") {
-            payload.content = content;
-        } else if (typeof content === "object") { // to filter out undefined
-            payload.content = content.content;
-
-            if (content.reply_to !== undefined) payload.message_reference = { message_id:  this.client.messages.resolveID(content.reply_to) };
-            if (content.nonce !== undefined) payload.nonce = content.nonce;
-            if (content.tts !== undefined) payload.tts = content.tts;
-            if (content.embed !== undefined) payload.embed = content.embed;
-
-            if (content.allowed_mentions !== undefined) {
-                payload.allowed_mentions = {
-                    parse: content.allowed_mentions.parse,
-                    roles: content.allowed_mentions.roles?.filter(r => r).slice(0, 100).map(role => this.client.roles.resolveID(role)),
-                    users: content.allowed_mentions.roles?.filter(u => u).slice(0, 100).map(user => this.client.users.resolveID(user)),
-                    replied_user: content.allowed_mentions.replied_user
-                };
-            }
-        }
-
-        form.append("payload_json", JSON.stringify(payload), {
-            contentType: "application/json"
-        });
-
-        if (files.length) {
-            for (const attachment of files) {
-                form.append(attachment.filename || "file.png", attachment.file, {
-                    filename: attachment.filename || "file.png",
-                    contentType: attachment.content_type || "image/png"
-                });
-            }
-        }
+        const form = createMessageForm(content, files);
 
         const message = await this.client.make<BasicMessage>("POST", {
             body: form,

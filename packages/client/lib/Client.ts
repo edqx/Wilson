@@ -51,9 +51,9 @@ import {
 import { formatEndpoint, Querystring, stringifyQuery } from "./utils";
 import { JsonError } from "./errors/JsonError";
 
-export type HTTPMethod = "GET"|"POST"|"PUT"|"PATCH"|"DELETE";
+export type HttpMethod = "GET"|"POST"|"PUT"|"PATCH"|"DELETE";
 
-export enum HTTPResponse {
+export enum HttpResponse {
     NoContent = ""
 }
 
@@ -207,6 +207,7 @@ export type ClientEvents = {
 
 export interface HTTPRequestOptions extends RequestInit {
     query?: Querystring;
+    type?: string;
 }
 
 export class WilsonClient extends Emittery<ClientEvents> {
@@ -232,7 +233,7 @@ export class WilsonClient extends Emittery<ClientEvents> {
 
     private handleMessage: () => Promise<void>;
 
-    constructor(options: Partial<ClientOptions> = {}) {
+    constructor(options: ClientOptions = {}) {
         super();
 
         this.options = {
@@ -307,7 +308,8 @@ export class WilsonClient extends Emittery<ClientEvents> {
                         $os: "linux",
                         $browser: "wilson",
                         $device: "wilson"
-                    }
+                    },
+                    shard: this.options.shard
                 }
             });
         }
@@ -475,7 +477,7 @@ export class WilsonClient extends Emittery<ClientEvents> {
         }
     }
 
-    async make<T = any>(method: HTTPMethod, options: HTTPRequestOptions, path: string, ...params: any[]): Promise<T> {
+    async make<T = any>(method: HttpMethod, options: HTTPRequestOptions, path: string, ...params: any[]): Promise<T> {
         const formatted = formatEndpoint(path, ...params);
         const query = options.query ? "?" + stringifyQuery(options.query) : "";
 
@@ -484,6 +486,9 @@ export class WilsonClient extends Emittery<ClientEvents> {
             ...options,
             headers: {
                 Authorization: "Bot " + this._token,
+                ...(method !== "GET" ? {
+                    "Content-Type": options.type || "application/json"
+                } : {}),
                 ...options.headers
             }
         });

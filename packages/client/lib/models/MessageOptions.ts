@@ -1,4 +1,4 @@
-import { AllowedMentionType } from "@wilsonjs/constants";
+import { AllowedMentionType, MessageFlags } from "@wilsonjs/constants";
 import { BasicEmbed } from "@wilsonjs/models";
 import fs from "fs";
 
@@ -27,3 +27,14 @@ export interface MessageOptions {
     reply_to?: Resolvable<Message>;
     allowed_mentions?: AllowedMentions;
 }
+
+export type Embed = RichEmbed|BasicEmbed;
+
+export interface InteractionResponseOptions {
+    tts?: boolean;
+    content?: string;
+    embeds?: (RichEmbed|BasicEmbed)[];
+    allowed_mentions?: AllowedMentions;
+    flags?: MessageFlags;
+}
+

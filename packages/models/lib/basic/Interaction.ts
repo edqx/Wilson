@@ -1,6 +1,7 @@
 import { InteractionType, Snowflake } from "@wilsonjs/constants";
 import { BasicGuildMember } from "./GuildMember";
 import { BasicIdentifiable } from "./Identifiable";
+import { BasicUser } from "./User";
 
 export interface ApplicationCommandInteractionDataOption {
     name: string;
@@ -15,11 +16,13 @@ export interface ApplicationCommandInteractionData {
 }
 
 export interface BasicInteraction extends BasicIdentifiable {
+    application_id: Snowflake;
     type: InteractionType;
     data?: ApplicationCommandInteractionData;
-    guild_id: Snowflake;
-    channel_id: Snowflake;
-    member: BasicGuildMember;
+    guild_id?: Snowflake;
+    channel_id?: Snowflake;
+    member?: BasicGuildMember;
+    user?: BasicUser;
     token: string;
     version: number;
 }

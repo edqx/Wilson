@@ -10,7 +10,6 @@ export * from "./ExplicitContentFilterLevels";
 export * from "./GuildFeatures";
 export * from "./IntegrationExpireBehaviours";
 export * from "./IntegrationVisibilities";
-export * from "./InteractionApplicationCommandCallbackDataFlags";
 export * from "./InteractionResponseType";
 export * from "./InteractionTypes";
 export * from "./MembershipStates";

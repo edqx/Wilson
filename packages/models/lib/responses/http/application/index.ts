@@ -1,3 +1,5 @@
+export * from "./BulkOverwriteGlobalApplicationCommands";
+export * from "./BulkOverwriteGuildApplicationCommands";
 export * from "./CreateFollowupMessage";
 export * from "./CreateGlobalApplicationCommand";
 export * from "./CreateGuildApplicationCommand";
