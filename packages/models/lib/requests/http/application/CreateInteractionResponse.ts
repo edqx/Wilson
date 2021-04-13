@@ -1,4 +1,4 @@
-import { InteractionApplicationCommandCallbackDataFlags, InteractionResponseType } from "@wilsonjs/constants";
+import { MessageFlags, InteractionResponseType } from "@wilsonjs/constants";
 import { BasicAllowedMentions } from "../channel/CreateMessage";
 import { BasicEmbed } from "../../../basic";
 
@@ -7,7 +7,7 @@ export interface BasicInteractionApplicationCommandCallbackData {
     content?: string;
     embeds?: BasicEmbed[];
     allowed_mentions?: BasicAllowedMentions;
-    flags?: InteractionApplicationCommandCallbackDataFlags;
+    flags?: MessageFlags;
 }
 
 export interface BasicInteractionResponse {
