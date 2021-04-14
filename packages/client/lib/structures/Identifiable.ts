@@ -4,11 +4,13 @@ import { Snowflake } from "../types";
 import {
     getInternalProcessID,
     getInternalWorkerID,
-    getTimestamp
+    getTimestamp,
 } from "../utils/Snowflake";
 import { Networkable } from "./Networkable";
 
-export class Identifiable<BasicType extends BasicIdentifiable = BasicIdentifiable> extends Networkable<BasicType> {
+export class Identifiable<
+    BasicType extends BasicIdentifiable = BasicIdentifiable
+> extends Networkable<BasicType> {
     protected _id: Snowflake;
 
     constructor(protected client: WilsonClient, basic: Partial<BasicType>) {
@@ -22,11 +24,13 @@ export class Identifiable<BasicType extends BasicIdentifiable = BasicIdentifiabl
 
     toJSON() {
         return {
-            id: this.id
+            id: this.id,
         };
     }
 
-    patch(basic: Partial<BasicType>) { void basic; }
+    patch(basic: Partial<BasicType>) {
+        void basic;
+    }
 
     get created_timestamp() {
         return getTimestamp(this.id);

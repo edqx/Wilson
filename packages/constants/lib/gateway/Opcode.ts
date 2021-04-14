@@ -9,5 +9,5 @@ export enum GatewayOpcode {
     RequestGuildMembers,
     InvalidSession,
     Hello,
-    HeartbeatAck
+    HeartbeatAck,
 }

@@ -1,4 +1,3 @@
-import { Snowflake } from "@wilsonjs/constants";
 import { BasicIdentifiable } from "./Identifiable";
 
 export interface BasicAttachment extends BasicIdentifiable {
@@ -6,6 +5,6 @@ export interface BasicAttachment extends BasicIdentifiable {
     size: number;
     url: string;
     proxy_url: string;
-    height: number|null;
-    width: number|null;
+    height: number | null;
+    width: number | null;
 }

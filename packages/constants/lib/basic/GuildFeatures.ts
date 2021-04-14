@@ -13,5 +13,5 @@ export enum GuildFeature {
     Banner = "BANNER",
     WelcomeScreenEnabled = "WELCOME_SCREEN_ENABLED",
     MemberVerificationGateEnabled = "MEMBER_VERIFICATION_GATE_ENABLED",
-    PreviewEnabled = "PREVIEW_ENABLED"
+    PreviewEnabled = "PREVIEW_ENABLED",
 }

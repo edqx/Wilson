@@ -75,5 +75,5 @@ export enum JSONErrorCode {
     CannotDeleteCommunityChannel = 50074,
     InvalidStickerSent = 50081,
     ReactionBlocked = 90001,
-    APIResourceOverloaded = 130000
+    APIResourceOverloaded = 130000,
 }

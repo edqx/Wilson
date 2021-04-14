@@ -8,7 +8,10 @@ export type AnyChannel = TextChannel;
 export type AnyMessageable = TextChannel;
 
 export class ChannelCache extends Cache<AnyChannel> {
-    constructor(protected client: WilsonClient, entries?: ReadonlyArray<readonly [Snowflake, AnyChannel]>|null) {
+    constructor(
+        protected client: WilsonClient,
+        entries?: ReadonlyArray<readonly [Snowflake, AnyChannel]> | null
+    ) {
         super(client, entries);
     }
 
@@ -26,21 +29,22 @@ export class ChannelCache extends Cache<AnyChannel> {
         }
     }
 
-    update(basic: Partial<BasicChannel>): [ AnyChannel|undefined, AnyChannel|undefined ] {
-        if (!basic.id)
-            return [ undefined, undefined ];
+    update(
+        basic: Partial<BasicChannel>
+    ): [AnyChannel | undefined, AnyChannel | undefined] {
+        if (!basic.id) return [undefined, undefined];
 
         const current = this.get(basic.id);
 
         if (!current) {
             const new_item = this.add(basic);
-            return [ undefined, new_item ];
+            return [undefined, new_item];
         }
 
         const old_item = Object.assign(Object.create(current), current);
 
         current.patch(basic);
 
-        return [ old_item, current ];
+        return [old_item, current];
     }
 }

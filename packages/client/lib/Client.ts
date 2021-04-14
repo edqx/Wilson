@@ -12,7 +12,7 @@ import {
     GatewayEvent,
     GatewayOpcode,
     Timestamp,
-    Snowflake
+    Snowflake,
 } from "@wilsonjs/constants";
 
 import {
@@ -20,7 +20,7 @@ import {
     GatewayPayload,
     GetGatewayBotResponse,
     GetGuildResponse,
-    GetUserResponse
+    GetUserResponse,
 } from "@wilsonjs/models";
 
 import { ClientOptions } from "./models/ClientOptions";
@@ -35,7 +35,7 @@ import {
     UserCache,
     ChannelCache,
     AnyMessageable,
-    MaskedCache
+    MaskedCache,
 } from "./cache";
 
 import {
@@ -45,19 +45,19 @@ import {
     Emoji,
     Reaction,
     GuildMember,
-    Role
+    Role,
 } from "./structures";
 
 import { formatEndpoint, Querystring, stringifyQuery } from "./utils";
 import { JsonError } from "./errors/JsonError";
 
-export type HttpMethod = "GET"|"POST"|"PUT"|"PATCH"|"DELETE";
+export type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 export enum HttpResponse {
-    NoContent = ""
+    NoContent = "",
 }
 
-export type ClientEvents = {
+export interface ClientEvents {
     connect: Record<string, never>;
     ready: Record<string, never>;
     channelCreate: {
@@ -166,9 +166,7 @@ export type ClientEvents = {
         message: Message;
         emoji: Emoji;
     };
-    presenceUpdate: {
-
-    };
+    presenceUpdate: Record<string, never>;
     typingStart: {
         channel: AnyMessageable;
         timestamp: Timestamp;
@@ -178,10 +176,8 @@ export type ClientEvents = {
     userUpdate: {
         old?: User;
         user: User;
-    }
-    voiceStateUpdate: {
-
     };
+    voiceStateUpdate: Record<string, never>;
     voiceServerUpdate: {
         token: string;
         guild: Guild;
@@ -191,18 +187,10 @@ export type ClientEvents = {
         guild: Guild;
         channel: AnyMessageable;
     };
-    applicationCommandCreate: {
-
-    };
-    applicationCommandUpdate: {
-
-    };
-    applicationCommandDelete: {
-
-    };
-    interactionCreate: {
-
-    };
+    applicationCommandCreate: Record<string, never>;
+    applicationCommandUpdate: Record<string, never>;
+    applicationCommandDelete: Record<string, never>;
+    interactionCreate: Record<string, never>;
 }
 
 export interface HTTPRequestOptions extends RequestInit {
@@ -239,10 +227,10 @@ export class WilsonClient extends Emittery<ClientEvents> {
         this.options = {
             encoding: GatewayEncoding.Erlang,
             compression: GatewayCompression.ZLibStream,
-            ...options
+            ...options,
         };
 
-        this._inflate = new zlib.Inflate;
+        this._inflate = new zlib.Inflate();
 
         this.handleMessage = this._handleMessage.bind(this);
         this._seqnum = -1;
@@ -261,7 +249,10 @@ export class WilsonClient extends Emittery<ClientEvents> {
     }
 
     private async send(payload: GatewayPayload): Promise<number> {
-        const buffer = this.options.encoding === GatewayEncoding.JSON ? Buffer.from(JSON.stringify(payload)) : erlpack.pack(payload);
+        const buffer =
+            this.options.encoding === GatewayEncoding.JSON
+                ? Buffer.from(JSON.stringify(payload))
+                : erlpack.pack(payload);
         await this._socket.send(buffer);
         return buffer.byteLength;
     }
@@ -284,7 +275,7 @@ export class WilsonClient extends Emittery<ClientEvents> {
         this._did_recieve_ack = false;
         await this.send({
             op: GatewayOpcode.Heartbeat,
-            d: this._seqnum
+            d: this._seqnum,
         });
     }
 
@@ -295,8 +286,8 @@ export class WilsonClient extends Emittery<ClientEvents> {
                 d: {
                     token: this._token,
                     session_id: this._sessionid,
-                    seq: this._seqnum
-                }
+                    seq: this._seqnum,
+                },
             });
         } else {
             await this.send({
@@ -307,10 +298,10 @@ export class WilsonClient extends Emittery<ClientEvents> {
                     properties: {
                         $os: "linux",
                         $browser: "wilson",
-                        $device: "wilson"
+                        $device: "wilson",
                     },
-                    shard: this.options.shard
-                }
+                    shard: this.options.shard,
+                },
             });
         }
     }
@@ -328,7 +319,7 @@ export class WilsonClient extends Emittery<ClientEvents> {
                 break;
             }
             case GatewayEvent.ChannelUpdate: {
-                const [ old, channel ] = this.channels.update(payload.d);
+                const [old, channel] = this.channels.update(payload.d);
                 if (channel) {
                     this.emit("channelUpdate", { old, channel });
                 }
@@ -342,9 +333,16 @@ export class WilsonClient extends Emittery<ClientEvents> {
                 break;
             }
             case GatewayEvent.ChannelPinsUpdate: {
-                const channel = this.channels.patch({ id: payload.d.channel_id });
+                const channel = this.channels.patch({
+                    id: payload.d.channel_id,
+                });
                 if (channel) {
-                    this.emit("channelPinsUpdate", { channel, timestamp: new Date(payload.d.last_pin_timestamp).getTime() });
+                    this.emit("channelPinsUpdate", {
+                        channel,
+                        timestamp: new Date(
+                            payload.d.last_pin_timestamp
+                        ).getTime(),
+                    });
                 }
                 break;
             }
@@ -354,7 +352,7 @@ export class WilsonClient extends Emittery<ClientEvents> {
                 break;
             }
             case GatewayEvent.GuildUpdate: {
-                const [ old, guild ] = this.guilds.update(payload.d);
+                const [old, guild] = this.guilds.update(payload.d);
                 if (guild) {
                     this.emit("guildUpdate", { old, guild });
                 }
@@ -380,7 +378,10 @@ export class WilsonClient extends Emittery<ClientEvents> {
                 break;
             }
             case GatewayEvent.GuildEmojisUpdate: {
-                const guild = this.guilds.add({ id: payload.d.guild_id, emojis: payload.d.emojis });
+                const guild = this.guilds.add({
+                    id: payload.d.guild_id,
+                    emojis: payload.d.emojis,
+                });
                 this.emit("guildEmojisUpdate", { guild, emojis: guild.emojis });
                 break;
             }
@@ -391,7 +392,11 @@ export class WilsonClient extends Emittery<ClientEvents> {
             }
             case GatewayEvent.GuildMemberAdd: {
                 const guild = this.guilds.add({ id: payload.d.guild_id });
-                const member = this.members.add(guild, payload.d.user?.id || "", payload.d);
+                const member = this.members.add(
+                    guild,
+                    payload.d.user?.id || "",
+                    payload.d
+                );
                 this.emit("guildMemberAdd", { member });
                 break;
             }
@@ -404,7 +409,11 @@ export class WilsonClient extends Emittery<ClientEvents> {
             }
             case GatewayEvent.GuildMemberUpdate: {
                 const guild = this.guilds.add({ id: payload.d.guild_id });
-                const [ old, member ] = this.members.update(guild, payload.d.user?.id, payload.d);
+                const [old, member] = this.members.update(
+                    guild,
+                    payload.d.user?.id,
+                    payload.d
+                );
                 if (member) {
                     this.emit("guildMemberUpdate", { old, member });
                 }
@@ -412,7 +421,8 @@ export class WilsonClient extends Emittery<ClientEvents> {
             }
             case GatewayEvent.MessageCreate: {
                 const message = this.messages.add(payload.d);
-                if (message.channel) message.channel.last_message_id = message.id;
+                if (message.channel)
+                    message.channel.last_message_id = message.id;
                 this.emit("message", {
                     author: message.author,
                     message,
@@ -429,14 +439,28 @@ export class WilsonClient extends Emittery<ClientEvents> {
                     cached.count++;
                     cached.me = user.id === this.user.id;
 
-                    this.emit("messageReactionAdd", { user, message, reaction: cached, emoji });
+                    this.emit("messageReactionAdd", {
+                        user,
+                        message,
+                        reaction: cached,
+                        emoji,
+                    });
                 } else {
-                    const reaction = message.reactions.add(message, emoji.id, {});
+                    const reaction = message.reactions.add(
+                        message,
+                        emoji.id,
+                        {}
+                    );
                     reaction.count = 1;
                     reaction.me = user.id === this.user.id;
                     reaction.emoji = emoji;
 
-                    this.emit("messageReactionRemove", { user, message, reaction, emoji })
+                    this.emit("messageReactionRemove", {
+                        user,
+                        message,
+                        reaction,
+                        emoji,
+                    });
                 }
                 break;
             }
@@ -464,7 +488,9 @@ export class WilsonClient extends Emittery<ClientEvents> {
     }
 
     private async _handleMessage(buffer: Buffer) {
-        const do_flush = buffer.byteLength >= 4 && buffer.readUInt32BE(buffer.byteLength - 4) === 0x0000ffff; // flush suffix
+        const do_flush =
+            buffer.byteLength >= 4 &&
+            buffer.readUInt32BE(buffer.byteLength - 4) === 0x0000ffff; // flush suffix
         this._inflate.push(buffer, do_flush && zlib.Z_SYNC_FLUSH);
         if (do_flush) {
             const data = this._inflate.result as Buffer;
@@ -472,26 +498,41 @@ export class WilsonClient extends Emittery<ClientEvents> {
                 case GatewayEncoding.Erlang:
                     return await this.handlePayload(erlpack.unpack(data));
                 case GatewayEncoding.JSON:
-                    return await this.handlePayload(JSON.parse(data.toString("utf8")));
+                    return await this.handlePayload(
+                        JSON.parse(data.toString("utf8"))
+                    );
             }
         }
     }
 
-    async make<T = any>(method: HttpMethod, options: HTTPRequestOptions, path: string, ...params: any[]): Promise<T> {
+    async make<T = any>(
+        method: HttpMethod,
+        options: HTTPRequestOptions,
+        path: string,
+        ...params: any[]
+    ): Promise<T> {
         const formatted = formatEndpoint(path, ...params);
         const query = options.query ? "?" + stringifyQuery(options.query) : "";
 
-        const request_init = new Request((formatted[0] === "/" ? ("https://" + BaseUrls.API + formatted) : formatted) + query, {
-            method,
-            ...options,
-            headers: {
-                Authorization: "Bot " + this._token,
-                ...(method !== "GET" ? {
-                    "Content-Type": options.type || "application/json"
-                } : {}),
-                ...options.headers
+        const request_init = new Request(
+            (formatted[0] === "/"
+                ? "https://" + BaseUrls.API + formatted
+                : formatted) + query,
+            {
+                method,
+                ...options,
+                headers: {
+                    Authorization: "Bot " + this._token,
+                    ...(method !== "GET"
+                        ? {
+                              "Content-Type":
+                                  options.type || "application/json",
+                          }
+                        : {}),
+                    ...options.headers,
+                },
             }
-        });
+        );
 
         const res = await fetch(request_init);
 
@@ -501,12 +542,12 @@ export class WilsonClient extends Emittery<ClientEvents> {
             }
 
             if (res.headers.get("Content-Type") === "application/json") {
-                return await res.json() as T;
+                return (await res.json()) as T;
             } else if (res.headers.get("Content-Type") === "text/plain") {
-                return await res.text() as any;
+                return (await res.text()) as any;
             }
 
-            return await res.blob() as any;
+            return (await res.blob()) as any;
         } else {
             try {
                 const json = await res.json();
@@ -520,7 +561,11 @@ export class WilsonClient extends Emittery<ClientEvents> {
 
     async connect(token: string) {
         this._token = token;
-        const { url: baseUrl } = await this.make<GetGatewayBotResponse>("GET", {}, ApiEndpoints.GetBotGateway);
+        const { url: baseUrl } = await this.make<GetGatewayBotResponse>(
+            "GET",
+            {},
+            ApiEndpoints.GetBotGateway
+        );
 
         let url = baseUrl + "?v=8&encoding=" + this.options.encoding;
         if (this.options.compression === GatewayCompression.ZLibStream) {
@@ -533,7 +578,12 @@ export class WilsonClient extends Emittery<ClientEvents> {
 
     async getUser(resolvable: Resolvable<User>) {
         const resolved_id = this.users.resolveID(resolvable);
-        const basic = await this.make<GetUserResponse>("GET", {}, ApiEndpoints.GetUser, resolved_id);
+        const basic = await this.make<GetUserResponse>(
+            "GET",
+            {},
+            ApiEndpoints.GetUser,
+            resolved_id
+        );
         const user = new User(this, basic);
         this.users.add(user);
 
@@ -542,7 +592,12 @@ export class WilsonClient extends Emittery<ClientEvents> {
 
     async getGuild(resolvable: Resolvable<Guild>) {
         const resolved_id = this.users.resolveID(resolvable);
-        const basic = await this.make<GetGuildResponse>("GET", {}, ApiEndpoints.GetGuild, resolved_id);
+        const basic = await this.make<GetGuildResponse>(
+            "GET",
+            {},
+            ApiEndpoints.GetGuild,
+            resolved_id
+        );
 
         return this.guilds.add(basic);
     }

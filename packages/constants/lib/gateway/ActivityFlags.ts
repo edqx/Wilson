@@ -4,7 +4,7 @@ export const ActivityFlag = {
     Spectate: 1 << 2,
     JoinRequest: 1 << 3,
     Sync: 1 << 4,
-    Play: 1 << 5
+    Play: 1 << 5,
 } as const;
 
 export type ActivityFlags = number;

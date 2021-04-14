@@ -3,5 +3,5 @@ export enum InteractionResponseType {
     Acknowledge,
     ChannelMessage,
     ChannelMessageWithSource,
-    DeferredChannelMessageWithSource
+    DeferredChannelMessageWithSource,
 }

@@ -3,21 +3,24 @@ import { Snowflake } from "@wilsonjs/constants";
 import { WilsonClient } from "../Client";
 import { Identifiable } from "../structures";
 
-export type Resolvable<V extends Identifiable> = Snowflake|V;
+export type Resolvable<V extends Identifiable> = Snowflake | V;
 
 export class MaskedCache<V extends Identifiable> {
-    constructor(protected client: WilsonClient, public readonly cache: Cache<V>, public readonly mask: Set<Snowflake>) {}
+    constructor(
+        protected client: WilsonClient,
+        public readonly cache: Cache<V>,
+        public readonly mask: Set<Snowflake>
+    ) {}
 
     resolve(resolvable: Resolvable<V>) {
         const resolved_id = this.resolveID(resolvable);
 
-        if (!resolved_id)
-            return undefined;
+        if (!resolved_id) return undefined;
 
         return this.cache.get(resolved_id);
     }
 
-    resolveID(resolvable: Resolvable<V>): Snowflake|undefined {
+    resolveID(resolvable: Resolvable<V>): Snowflake | undefined {
         const resolved_id = this.cache.resolveID(resolvable);
 
         if (this.mask.has(resolved_id)) {
@@ -28,10 +31,15 @@ export class MaskedCache<V extends Identifiable> {
     }
 }
 
-export type GetBasic<V extends Identifiable> = V extends Identifiable<infer U> ? U : never;
+export type GetBasic<V extends Identifiable> = V extends Identifiable<infer U>
+    ? U
+    : never;
 
 export class Cache<V extends Identifiable> extends Collection<Snowflake, V> {
-    constructor(protected client: WilsonClient, entries?: ReadonlyArray<readonly [Snowflake, V]>|null) {
+    constructor(
+        protected client: WilsonClient,
+        entries?: ReadonlyArray<readonly [Snowflake, V]> | null
+    ) {
         super(entries);
     }
 
@@ -50,8 +58,7 @@ export class Cache<V extends Identifiable> extends Collection<Snowflake, V> {
     }
 
     patch(basic: Partial<GetBasic<V>>) {
-        if (!basic.id)
-            return undefined;
+        if (!basic.id) return undefined;
 
         const cached = this.get(basic.id);
         if (cached) {
@@ -62,14 +69,17 @@ export class Cache<V extends Identifiable> extends Collection<Snowflake, V> {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    add(...args: any[]): V|undefined { return undefined; }
+    add(...args: any[]): V | undefined {
+        return undefined;
+    }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    update(...args: any[]): [V|undefined, V|undefined] { return [ undefined, undefined ]; }
+    update(...args: any[]): [V | undefined, V | undefined] {
+        return [undefined, undefined];
+    }
 
     remove(basic: Partial<GetBasic<V>>) {
-        if (!basic.id)
-            return undefined;
+        if (!basic.id) return undefined;
 
         const current = this.get(basic.id);
 

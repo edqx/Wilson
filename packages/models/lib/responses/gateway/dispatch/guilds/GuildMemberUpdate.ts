@@ -5,8 +5,8 @@ export interface GuildMemberUpdateData {
     guild_id: Snowflake;
     roles: Snowflake[];
     user: BasicUser;
-    nick?: string|null;
+    nick?: string | null;
     joined_at: ISOTimestamp;
-    premium_since?: ISOTimestamp|null;
+    premium_since?: ISOTimestamp | null;
     pending?: boolean;
 }

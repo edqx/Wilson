@@ -8,7 +8,7 @@ export interface PaginationOptions {
 }
 
 export interface IdentifiablePaginationOptions<T extends Identifiable> {
-    before?: T|Snowflake;
-    after?: T|Snowflake;
+    before?: T | Snowflake;
+    after?: T | Snowflake;
     limit?: number;
 }

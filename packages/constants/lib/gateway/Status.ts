@@ -4,5 +4,5 @@ export enum Status {
     Idle = "idle",
     AFK = "idle",
     Invisible = "invisible",
-    Offline = "offline"
+    Offline = "offline",
 }

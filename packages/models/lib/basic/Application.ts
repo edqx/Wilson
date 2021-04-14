@@ -10,14 +10,14 @@ export interface BasicTeamMember {
 }
 
 export interface BasicTeam extends BasicIdentifiable {
-    icon: string|null;
+    icon: string | null;
     members: BasicTeam[];
     owner_user_id: Snowflake;
 }
 
 export interface BasicApplication extends BasicIdentifiable {
     name: string;
-    icon: string|null;
+    icon: string | null;
     description: string;
     rpc_origins?: string[];
     bot_public: boolean;
@@ -25,7 +25,7 @@ export interface BasicApplication extends BasicIdentifiable {
     owner: BasicUser;
     summary: string;
     verify_key: string;
-    team: BasicTeam|null;
+    team: BasicTeam | null;
     guild_id?: Snowflake;
     primary_sku_id?: Snowflake;
     slug?: string;

@@ -1,4 +1,10 @@
-import { ISOTimestamp, MessageActivityType, MessageFlags, MessageType, Snowflake } from "@wilsonjs/constants";
+import {
+    ISOTimestamp,
+    MessageActivityType,
+    MessageFlags,
+    MessageType,
+    Snowflake,
+} from "@wilsonjs/constants";
 import { BasicAttachment } from "./Attachment";
 import { BasicChannel } from "./Channel";
 import { BasicEmbed } from "./Embed";
@@ -22,7 +28,7 @@ export interface MessageApplication {
     id: Snowflake;
     cover_image?: string;
     description: string;
-    icon: string|null;
+    icon: string | null;
     name: string;
 }
 
@@ -40,7 +46,7 @@ export interface BasicMessage extends BasicIdentifiable {
     member?: BasicGuildMember;
     content: string;
     timestamp: ISOTimestamp;
-    edited_timestamp: ISOTimestamp|null;
+    edited_timestamp: ISOTimestamp | null;
     tts: boolean;
     mention_everyone: boolean;
     mentions: MessageUserMention[];
@@ -49,7 +55,7 @@ export interface BasicMessage extends BasicIdentifiable {
     attachments: BasicAttachment[];
     embeds: BasicEmbed[];
     reactions?: BasicReaction[];
-    nonce?: number|string;
+    nonce?: number | string;
     pinned?: boolean;
     webhook_id?: Snowflake;
     type: MessageType;

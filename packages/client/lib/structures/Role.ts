@@ -6,7 +6,11 @@ import { Identifiable } from "./Identifiable";
 export class Role extends Identifiable<BasicRole> {
     name: string;
 
-    constructor(protected client: WilsonClient, public readonly guild: Guild, basic: Partial<BasicRole>) {
+    constructor(
+        protected client: WilsonClient,
+        public readonly guild: Guild,
+        basic: Partial<BasicRole>
+    ) {
         super(client, basic);
     }
 

@@ -1,3 +1,3 @@
 export interface ModifyGuildUserNickRequest {
-    nick?: string|null;
+    nick?: string | null;
 }

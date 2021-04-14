@@ -5,7 +5,7 @@ export const MessageFlag = {
     SourceMessageDeleted: 1 << 3,
     Urgent: 1 << 4,
     HasThreads: 1 << 5,
-    Ephemeral: 1 << 6
+    Ephemeral: 1 << 6,
 } as const;
 
 export type MessageFlags = number;

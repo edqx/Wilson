@@ -1,4 +1,9 @@
-import { AuditLogChangeKey, AuditLogEvent, PermissionOverwriteType, Snowflake } from "@wilsonjs/constants";
+import {
+    AuditLogChangeKey,
+    AuditLogEvent,
+    PermissionOverwriteType,
+    Snowflake,
+} from "@wilsonjs/constants";
 import { BasicIdentifiable } from "./Identifiable";
 import { BasicIntegration } from "./Integration";
 import { BasicPermissionOverwrite } from "./Overwrite";
@@ -50,13 +55,13 @@ export interface BaseChannelOverwriteUpdate {
     type: PermissionOverwriteType;
 }
 
-
 export interface BaseChannelOverwriteDelete {
     id: Snowflake;
     type: PermissionOverwriteType;
 }
 
-export interface MemberChannelOverwriteCreate extends BaseChannelOverwriteCreate {
+export interface MemberChannelOverwriteCreate
+    extends BaseChannelOverwriteCreate {
     type: PermissionOverwriteType.Member;
 }
 
@@ -65,7 +70,8 @@ export interface RoleChannelOverwriteCreate extends BaseChannelOverwriteCreate {
     role_name: string;
 }
 
-export interface MemberChannelOverwriteUpdate extends BaseChannelOverwriteUpdate {
+export interface MemberChannelOverwriteUpdate
+    extends BaseChannelOverwriteUpdate {
     type: PermissionOverwriteType.Member;
 }
 
@@ -74,7 +80,8 @@ export interface RoleChannelOverwriteUpdate extends BaseChannelOverwriteUpdate {
     role_name: string;
 }
 
-export interface MemberChannelOverwriteDelete extends BaseChannelOverwriteDelete {
+export interface MemberChannelOverwriteDelete
+    extends BaseChannelOverwriteDelete {
     type: PermissionOverwriteType.Member;
 }
 
@@ -84,29 +91,28 @@ export interface RoleChannelOverwriteDelete extends BaseChannelOverwriteDelete {
 }
 
 export type ChannelOverwriteCreate =
-    MemberChannelOverwriteCreate |
-    RoleChannelOverwriteCreate;
+    | MemberChannelOverwriteCreate
+    | RoleChannelOverwriteCreate;
 
 export type ChannelOverwriteUpdate =
-    MemberChannelOverwriteUpdate |
-    RoleChannelOverwriteUpdate;
-
+    | MemberChannelOverwriteUpdate
+    | RoleChannelOverwriteUpdate;
 
 export type ChannelOverwriteDelete =
-    MemberChannelOverwriteDelete |
-    RoleChannelOverwriteDelete;
+    | MemberChannelOverwriteDelete
+    | RoleChannelOverwriteDelete;
 
 export type AdditionalAuditLogEntryInfo =
-    MemberPruneInfo |
-    MemberMoveInfo |
-    MessagePinInfo |
-    MessageUnpinInfo |
-    MessageDeleteInfo |
-    MessageBulkDeleteInfo |
-    MemberDisconnect |
-    ChannelOverwriteCreate |
-    ChannelOverwriteUpdate |
-    ChannelOverwriteDelete;
+    | MemberPruneInfo
+    | MemberMoveInfo
+    | MessagePinInfo
+    | MessageUnpinInfo
+    | MessageDeleteInfo
+    | MessageBulkDeleteInfo
+    | MemberDisconnect
+    | ChannelOverwriteCreate
+    | ChannelOverwriteUpdate
+    | ChannelOverwriteDelete;
 
 export interface BaseAuditLogChange {
     new_value: unknown;
@@ -186,7 +192,8 @@ export interface RulesChannelIDAuditLogChange extends BaseAuditLogChange {
     key: AuditLogChangeKey.RulesChannelID;
 }
 
-export interface PublicUpdatesChannelIDAuditLogChange extends BaseAuditLogChange {
+export interface PublicUpdatesChannelIDAuditLogChange
+    extends BaseAuditLogChange {
     new_value: Snowflake;
     old_value: Snowflake;
     key: AuditLogChangeKey.PublicUpdatesChannelID;
@@ -204,13 +211,15 @@ export interface VerificationLevelAuditLogChange extends BaseAuditLogChange {
     key: AuditLogChangeKey.VerificationLevel;
 }
 
-export interface ExplicitContentFilterAuditLogChange extends BaseAuditLogChange {
+export interface ExplicitContentFilterAuditLogChange
+    extends BaseAuditLogChange {
     new_value: number;
     old_value: number;
     key: AuditLogChangeKey.ExplicitContentFilter;
 }
 
-export interface DefaultMessageNotificationsAuditLogChange extends BaseAuditLogChange {
+export interface DefaultMessageNotificationsAuditLogChange
+    extends BaseAuditLogChange {
     new_value: number;
     old_value: number;
     key: AuditLogChangeKey.DefaultMessageNotifications;
@@ -438,60 +447,61 @@ export interface UserLimitAuditLogChange extends BaseAuditLogChange {
     key: AuditLogChangeKey.UserLimit;
 }
 
-export type AuditLogChange = NameAuditLogChange |
-    DescriptionAuditLogChange |
-    IconHashAuditLogChange |
-    SplashHashAuditLogChange |
-    DiscoverySplashHashAuditLogChange |
-    BannerHashAuditLogChange |
-    OwnerIDAuditLogChange |
-    RegionAuditLogChange |
-    PreferredLocaleAuditLogChange |
-    AFKChannelIDAuditLogChange |
-    AFKTimeoutAuditLogChange |
-    RulesChannelIDAuditLogChange |
-    PublicUpdatesChannelIDAuditLogChange |
-    MFALevelAuditLogChange |
-    VerificationLevelAuditLogChange |
-    ExplicitContentFilterAuditLogChange |
-    DefaultMessageNotificationsAuditLogChange |
-    VanityURLCodeAuditLogChange |
-    RoleAddAuditLogChange |
-    RoleRemoveAuditLogChange |
-    PruneDeleteDaysAuditLogChange |
-    WidgetEnabledAuditLogChange |
-    WidgetChannelIDAuditLogChange |
-    SystemChannelIDAuditLogChange |
-    PositionAuditLogChange |
-    TopicAuditLogChange |
-    BitrateAuditLogChange |
-    PermissionOverwritesAuditLogChange |
-    NsfwAuditLogChange |
-    ApplicationIDAuditLogChange |
-    RateLimitPerUserAuditLogChange |
-    PermissionsAuditLogChange |
-    ColorAuditLogChange |
-    HoistAuditLogChange |
-    MentionableAuditLogChange |
-    AllowAuditLogChange |
-    DenyAuditLogChange |
-    CodeAuditLogChange |
-    ChannelIDAuditLogChange |
-    InviterIDAuditLogChange |
-    MaxUsesAuditLogChange |
-    UsesAuditLogChange |
-    MaxAgeAuditLogChange |
-    TemporaryAuditLogChange |
-    DeafAuditLogChange |
-    MuteAuditLogChange |
-    NickAuditLogChange |
-    AvatarHashAuditLogChange |
-    IDAuditLogChange |
-    TypeAuditLogChange |
-    EnableEmoticonsAuditLogChange |
-    ExpireBehaviorAuditLogChange |
-    ExpireGracePeriodAuditLogChange |
-    UserLimitAuditLogChange
+export type AuditLogChange =
+    | NameAuditLogChange
+    | DescriptionAuditLogChange
+    | IconHashAuditLogChange
+    | SplashHashAuditLogChange
+    | DiscoverySplashHashAuditLogChange
+    | BannerHashAuditLogChange
+    | OwnerIDAuditLogChange
+    | RegionAuditLogChange
+    | PreferredLocaleAuditLogChange
+    | AFKChannelIDAuditLogChange
+    | AFKTimeoutAuditLogChange
+    | RulesChannelIDAuditLogChange
+    | PublicUpdatesChannelIDAuditLogChange
+    | MFALevelAuditLogChange
+    | VerificationLevelAuditLogChange
+    | ExplicitContentFilterAuditLogChange
+    | DefaultMessageNotificationsAuditLogChange
+    | VanityURLCodeAuditLogChange
+    | RoleAddAuditLogChange
+    | RoleRemoveAuditLogChange
+    | PruneDeleteDaysAuditLogChange
+    | WidgetEnabledAuditLogChange
+    | WidgetChannelIDAuditLogChange
+    | SystemChannelIDAuditLogChange
+    | PositionAuditLogChange
+    | TopicAuditLogChange
+    | BitrateAuditLogChange
+    | PermissionOverwritesAuditLogChange
+    | NsfwAuditLogChange
+    | ApplicationIDAuditLogChange
+    | RateLimitPerUserAuditLogChange
+    | PermissionsAuditLogChange
+    | ColorAuditLogChange
+    | HoistAuditLogChange
+    | MentionableAuditLogChange
+    | AllowAuditLogChange
+    | DenyAuditLogChange
+    | CodeAuditLogChange
+    | ChannelIDAuditLogChange
+    | InviterIDAuditLogChange
+    | MaxUsesAuditLogChange
+    | UsesAuditLogChange
+    | MaxAgeAuditLogChange
+    | TemporaryAuditLogChange
+    | DeafAuditLogChange
+    | MuteAuditLogChange
+    | NickAuditLogChange
+    | AvatarHashAuditLogChange
+    | IDAuditLogChange
+    | TypeAuditLogChange
+    | EnableEmoticonsAuditLogChange
+    | ExpireBehaviorAuditLogChange
+    | ExpireGracePeriodAuditLogChange
+    | UserLimitAuditLogChange;
 
 export interface BasicAuditLogEntry extends BasicIdentifiable {
     target_id: Snowflake;

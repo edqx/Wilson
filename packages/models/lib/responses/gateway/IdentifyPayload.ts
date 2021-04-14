@@ -2,7 +2,7 @@ import { GatewayOpcode, GatewayIntentFlags } from "@wilsonjs/constants";
 import { BasePayload } from "./BasePayload";
 import { UpdateStatusData } from "./dispatch/UpdateStatus";
 
-export type ShardIdentifyTuple = [ number, number ];
+export type ShardIdentifyTuple = [number, number];
 
 export interface IdentifyConnectionProperties {
     $os: string;

@@ -1,3 +1,3 @@
 export enum TargetUserType {
-    Stream = 1
+    Stream = 1,
 }

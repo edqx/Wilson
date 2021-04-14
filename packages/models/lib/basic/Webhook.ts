@@ -8,8 +8,8 @@ export interface BasicWebhook extends BasicIdentifiable {
     guild_id?: Snowflake;
     channel_id: Snowflake;
     user?: BasicUser;
-    name: string|null;
-    avatar: string|null;
+    name: string | null;
+    avatar: string | null;
     token?: string;
-    application_id: Snowflake|null;
+    application_id: Snowflake | null;
 }

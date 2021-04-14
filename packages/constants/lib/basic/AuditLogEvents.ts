@@ -33,5 +33,5 @@ export enum AuditLogEvent {
     MessageUnpin,
     IntegrationCreate = 80,
     IntegrationUpdate,
-    IntegrationDelete
+    IntegrationDelete,
 }

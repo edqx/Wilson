@@ -1,4 +1,4 @@
 export interface CreateGuildTemplateRequest {
     name: string;
-    description?: string|null;
+    description?: string | null;
 }

@@ -1,4 +1,9 @@
-import { ApiEndpoints, ChannelType, PermissionOverwriteType, Snowflake } from "@wilsonjs/constants";
+import {
+    ApiEndpoints,
+    ChannelType,
+    PermissionOverwriteType,
+    Snowflake,
+} from "@wilsonjs/constants";
 import { BasicChannel, BasicMessage } from "@wilsonjs/models";
 
 import { Cache, Resolvable } from "../cache/Cache";
@@ -25,7 +30,7 @@ export class TextChannel extends Channel {
     nsfw: boolean;
     topic: string;
 
-    overwrites: Cache<MemberOverwrite|RoleOverwrite>;
+    overwrites: Cache<MemberOverwrite | RoleOverwrite>;
 
     constructor(protected client: WilsonClient, basic: Partial<BasicChannel>) {
         super(client, basic);
@@ -56,16 +61,23 @@ export class TextChannel extends Channel {
             for (const basic_overwrite of basic.permission_overwrites) {
                 switch (basic_overwrite.type) {
                     case PermissionOverwriteType.Member:
-                        this.overwrites.set(basic_overwrite.id, new MemberOverwrite(this.client, basic_overwrite));
+                        this.overwrites.set(
+                            basic_overwrite.id,
+                            new MemberOverwrite(this.client, basic_overwrite)
+                        );
                         break;
                     case PermissionOverwriteType.Role:
-                        this.overwrites.set(basic_overwrite.id, new RoleOverwrite(this.client, basic_overwrite));
+                        this.overwrites.set(
+                            basic_overwrite.id,
+                            new RoleOverwrite(this.client, basic_overwrite)
+                        );
                         break;
                 }
             }
         }
 
-        if (basic.rate_limit_per_user !== undefined) this.rate_limit = basic.rate_limit_per_user;
+        if (basic.rate_limit_per_user !== undefined)
+            this.rate_limit = basic.rate_limit_per_user;
         if (basic.nsfw !== undefined) this.nsfw = basic.nsfw;
         if (basic.topic !== undefined) this.topic = basic.topic;
 
@@ -84,21 +96,32 @@ export class TextChannel extends Channel {
         }
     }
 
-    async send(content: string|MessageOptions, files: AttachmentInfo[] = []) {
+    async send(content: string | MessageOptions, files: AttachmentInfo[] = []) {
         const form = createMessageForm(content, files);
 
-        const message = await this.client.make<BasicMessage>("POST", {
-            body: form,
-            headers: {
-                ...form.getHeaders()
-            }
-        }, ApiEndpoints.CreateMessage, this.id);
+        const message = await this.client.make<BasicMessage>(
+            "POST",
+            {
+                body: form,
+                headers: {
+                    ...form.getHeaders(),
+                },
+            },
+            ApiEndpoints.CreateMessage,
+            this.id
+        );
         return this.client.messages.add(message);
     }
 
     async deleteMessage(message: Resolvable<Message>) {
         const message_id = this.client.messages.resolveID(message);
-        const res = await this.client.make<HttpResponse.NoContent>("DELETE", {}, ApiEndpoints.DeleteMessage, this.id, message_id);
+        const res = await this.client.make<HttpResponse.NoContent>(
+            "DELETE",
+            {},
+            ApiEndpoints.DeleteMessage,
+            this.id,
+            message_id
+        );
 
         return res === HttpResponse.NoContent;
     }

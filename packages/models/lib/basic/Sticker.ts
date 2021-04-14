@@ -7,6 +7,6 @@ export interface BasicSticker extends BasicIdentifiable {
     description: string;
     tags?: string;
     asset: string;
-    preview_asset: string|null;
+    preview_asset: string | null;
     format_type: StickerFormatType;
 }

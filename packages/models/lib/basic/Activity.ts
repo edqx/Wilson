@@ -1,4 +1,9 @@
-import { ActivityType, ActivityFlags, Snowflake, Timestamp } from "@wilsonjs/constants";
+import {
+    ActivityType,
+    ActivityFlags,
+    Snowflake,
+    Timestamp,
+} from "@wilsonjs/constants";
 
 export interface ActivityTimestampData {
     start: Timestamp;
@@ -11,7 +16,7 @@ export interface ActivityEmojiData {
     animated: boolean;
 }
 
-export type ActivityPartySizeTuple = [ number, number ];
+export type ActivityPartySizeTuple = [number, number];
 
 export interface ActivityPartyData {
     id: string;

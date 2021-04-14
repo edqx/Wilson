@@ -3,8 +3,8 @@ import { BasicActivity } from "../../basic";
 import { BasePayload } from "./BasePayload";
 
 export interface PresenceUpdatePayloadData {
-    since: number|null;
-    activities: BasicActivity[]|null;
+    since: number | null;
+    activities: BasicActivity[] | null;
     status: Status;
     afk: boolean;
 }

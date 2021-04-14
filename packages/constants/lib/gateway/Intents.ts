@@ -13,7 +13,7 @@ export const GatewayIntentFlag = {
     GuildMessageTyping: 1 << 11,
     DirectMessages: 1 << 12,
     DirectMessageReactions: 1 << 13,
-    DirectMessageTyping: 1 << 14
+    DirectMessageTyping: 1 << 14,
 } as const;
 
 export type GatewayIntentFlags = number;

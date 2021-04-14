@@ -3,5 +3,5 @@ export enum GatewayVersion {
     V5,
     V6,
     V7,
-    V8
+    V8,
 }

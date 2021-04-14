@@ -1,4 +1,4 @@
 export enum GatewayEncoding {
     JSON = "json",
-    Erlang = "etf"
+    Erlang = "etf",
 }

@@ -8,7 +8,10 @@ export class Overwrite extends Identifiable<BasicPermissionOverwrite> {
     allow: string;
     deny: string;
 
-    constructor(protected client: WilsonClient, basic: Partial<BasicPermissionOverwrite>) {
+    constructor(
+        protected client: WilsonClient,
+        basic: Partial<BasicPermissionOverwrite>
+    ) {
         super(client, basic);
     }
 

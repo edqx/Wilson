@@ -5,7 +5,10 @@ import { Guild, GuildMember } from "../structures";
 import { WilsonClient } from "../Client";
 
 export class GuildMemberCache extends Cache<GuildMember> {
-    constructor(protected client: WilsonClient, entries?: ReadonlyArray<readonly [Snowflake, GuildMember]>|null) {
+    constructor(
+        protected client: WilsonClient,
+        entries?: ReadonlyArray<readonly [Snowflake, GuildMember]> | null
+    ) {
         super(client, entries);
     }
 
@@ -18,21 +21,24 @@ export class GuildMemberCache extends Cache<GuildMember> {
         return member;
     }
 
-    update(guild: Guild, id: Snowflake, basic: Partial<BasicGuildMember>): [ GuildMember|undefined, GuildMember|undefined ] {
-        if (!id)
-            return [ undefined, undefined ];
+    update(
+        guild: Guild,
+        id: Snowflake,
+        basic: Partial<BasicGuildMember>
+    ): [GuildMember | undefined, GuildMember | undefined] {
+        if (!id) return [undefined, undefined];
 
         const current = this.get(id);
 
         if (!current) {
             const new_item = this.add(guild, id, basic);
-            return [ undefined, new_item ];
+            return [undefined, new_item];
         }
 
         const old_item = Object.assign(Object.create(current), current);
 
         current.patch(basic);
 
-        return [ old_item, current ];
+        return [old_item, current];
     }
 }

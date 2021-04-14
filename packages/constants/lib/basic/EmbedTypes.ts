@@ -4,5 +4,5 @@ export enum EmbedType {
     Video = "video",
     Gifv = "gifv",
     Article = "article",
-    Link = "link"
+    Link = "link",
 }

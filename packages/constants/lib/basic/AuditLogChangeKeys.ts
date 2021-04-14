@@ -52,5 +52,5 @@ export enum AuditLogChangeKey {
     EnableEmoticons = "enable_emoticons",
     ExpireBehaviour = "expire_behaviour",
     ExpireGracePeriod = "expire_grace_period",
-    UserLimit = "user_limit"
+    UserLimit = "user_limit",
 }

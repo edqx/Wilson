@@ -1,4 +1,4 @@
 export enum IntegrationExpireBehaviour {
     RemoveRole,
-    Kick
+    Kick,
 }

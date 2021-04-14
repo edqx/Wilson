@@ -12,5 +12,5 @@ export enum GatewayCloseEventCode {
     ShardingRequired,
     InvalidAPIVersion,
     InvalidIntent,
-    DisallowedIntent
+    DisallowedIntent,
 }

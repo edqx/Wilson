@@ -10,7 +10,7 @@ export interface WidgetResponseMember {
     id: Snowflake;
     username: string;
     discriminator: string;
-    avatar: string|null;
+    avatar: string | null;
     status: Status;
     avatar_url: string;
 }

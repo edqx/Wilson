@@ -15,5 +15,5 @@ export enum MessageType {
     GuildDiscoveryDisqualified = 14,
     GuildDiscoveryRequalified,
     Reply = 19,
-    ApplicationCommand
+    ApplicationCommand,
 }

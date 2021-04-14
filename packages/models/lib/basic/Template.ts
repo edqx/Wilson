@@ -5,7 +5,7 @@ import { BasicUser } from "./User";
 export interface BasicTemplate {
     code: string;
     name: string;
-    description: string|null;
+    description: string | null;
     usage_count: number;
     creator_id: Snowflake;
     creator: BasicUser;
@@ -13,5 +13,5 @@ export interface BasicTemplate {
     updated_at: ISOTimestamp;
     source_guild_id: Snowflake;
     serialized_source_guild: BasicGuild;
-    is_dirty: boolean|null;
+    is_dirty: boolean | null;
 }

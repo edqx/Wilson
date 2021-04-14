@@ -3,5 +3,5 @@ export enum VerificationLevel {
     Low,
     Medium,
     High,
-    VeryHigh
+    VeryHigh,
 }

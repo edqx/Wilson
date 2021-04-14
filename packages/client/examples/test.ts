@@ -8,7 +8,7 @@ dotenv.config();
 
 const client = new WilsonClient({
     encoding: GatewayEncoding.JSON,
-    compression: GatewayCompression.ZLibStream
+    compression: GatewayCompression.ZLibStream,
 });
 
 if (!process.env.TOKEN) {
@@ -29,28 +29,34 @@ client.on("guildUpdate", ({ old, guild }) => {
 });
 
 client.on("message", async ({ message }) => {
-    if (message.author.id === client.user.id)
-        return;
+    if (message.author.id === client.user.id) return;
 
     const embed = new RichEmbed()
         .setTitle("Hello G.")
         .setBody("Skeleton.")
         .setColor([127, 127, 255])
-        .setImage("https://raw.githubusercontent.com/SkeldJS/SkeldJS/master/asset/SkeldJSMain.png")
+        .setImage(
+            "https://raw.githubusercontent.com/SkeldJS/SkeldJS/master/asset/SkeldJSMain.png"
+        )
         .addInline("poop", "poop")
         .addInline("cock", "wock");
 
     const stream = fs.createReadStream("./penguin.png");
 
-    const my_message = await message.reply({
-        embed,
-        allowed_mentions: {
-            replied_user: false
-        }
-    }, [{
-        file: stream,
-        filename: "penguin.png"
-    }]);
+    const my_message = await message.reply(
+        {
+            embed,
+            allowed_mentions: {
+                replied_user: false,
+            },
+        },
+        [
+            {
+                file: stream,
+                filename: "penguin.png",
+            },
+        ]
+    );
 
     setTimeout(async () => {
         await my_message.delete();

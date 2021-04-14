@@ -6,7 +6,7 @@ export interface RequestGuildMembersPayloadData {
     query?: string;
     limit: number;
     presences?: boolean;
-    user_ids?: Snowflake[]|Snowflake;
+    user_ids?: Snowflake[] | Snowflake;
     nonce?: string;
 }
 

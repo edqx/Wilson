@@ -6,5 +6,5 @@ export enum ApplicationCommandOptionType {
     Boolean,
     User,
     Channel,
-    Role
+    Role,
 }

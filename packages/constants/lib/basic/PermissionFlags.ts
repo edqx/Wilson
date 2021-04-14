@@ -28,7 +28,7 @@ export const PermissionFlag = {
     ChangeNickname: 1 << 26,
     ManageRoles: 1 << 27,
     ManageWebhooks: 1 << 28,
-    ManageEmojis: 1 << 29
+    ManageEmojis: 1 << 29,
 } as const;
 
 export type PermissionFlags = string;

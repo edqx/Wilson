@@ -4,5 +4,5 @@ export enum ActivityType {
     Streaming,
     Listening,
     Custom,
-    Competing
+    Competing,
 }

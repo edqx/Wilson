@@ -6,18 +6,15 @@ import {
     BasicEmbedVideo,
     BasicEmbedProvider,
     BasicEmbedAuthor,
-    BasicEmbedField
+    BasicEmbedField,
 } from "@wilsonjs/models";
 
-import {
-    EmbedType,
-    ISOTimestamp
-} from "@wilsonjs/constants";
+import { EmbedType, ISOTimestamp } from "@wilsonjs/constants";
 
 import { User } from "./User";
 import { GuildMember } from "./GuildMember";
 
-type RGB = [ number, number, number ];
+type RGB = [number, number, number];
 
 export class RichEmbed implements BasicEmbed {
     title?: string;
@@ -56,14 +53,15 @@ export class RichEmbed implements BasicEmbed {
             video: this.video,
             provider: this.provider,
             author: this.author,
-            fields: this.fields
+            fields: this.fields,
         };
     }
 
     update(basic: Partial<BasicEmbed>) {
         if (basic.title !== undefined) this.title = basic.title;
         if (basic.type !== undefined) this.type = basic.type;
-        if (basic.description !== undefined) this.description = basic.description;
+        if (basic.description !== undefined)
+            this.description = basic.description;
         if (basic.url !== undefined) this.url = basic.url;
         if (basic.timestamp !== undefined) this.timestamp = basic.timestamp;
         if (basic.color !== undefined) this.color = basic.color;
@@ -96,8 +94,8 @@ export class RichEmbed implements BasicEmbed {
         return this;
     }
 
-    setColor(color: string|number|RGB) {
-        if (typeof color === "string")  {
+    setColor(color: string | number | RGB) {
+        if (typeof color === "string") {
             this.color = parseInt(color, 16);
         } else if (typeof color === "number") {
             this.color = color >>> 0;
@@ -118,7 +116,7 @@ export class RichEmbed implements BasicEmbed {
             this.image = { url };
         } else {
             this.image = {
-                url: "attachment://" + url
+                url: "attachment://" + url,
             };
         }
 
@@ -131,7 +129,7 @@ export class RichEmbed implements BasicEmbed {
             this.thumbnail = { url };
         } else {
             this.thumbnail = {
-                url: "attachment://" + url
+                url: "attachment://" + url,
             };
         }
 
@@ -150,14 +148,21 @@ export class RichEmbed implements BasicEmbed {
 
     setAuthor(user: User);
     setAuthor(member: GuildMember);
-    setAuthor(name?: User|GuildMember|string, url?: string, icon_url?: string) {
+    setAuthor(
+        name?: User | GuildMember | string,
+        url?: string,
+        icon_url?: string
+    ) {
         if (!name && !url && !icon_url) {
             this.author = undefined;
         } else if (typeof name === "string") {
             this.author = { name, url, icon_url };
         } else if ((name as GuildMember).user) {
             const member = name as GuildMember;
-            this.author = { name: member.displayName, icon_url: member.user.avatarUrl() };
+            this.author = {
+                name: member.displayName,
+                icon_url: member.user.avatarUrl(),
+            };
         } else {
             const user = name as User;
             this.author = { name: user.tag, icon_url: user.avatarUrl() };
@@ -170,7 +175,7 @@ export class RichEmbed implements BasicEmbed {
         this.fields.push({
             name: title,
             value: body,
-            inline
+            inline,
         });
         return this;
     }

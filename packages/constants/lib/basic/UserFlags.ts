@@ -12,7 +12,7 @@ export const UserFlag = {
     System: 1 << 12,
     BugHunterLvl2: 1 << 14,
     VerifiedBot: 1 << 16,
-    EarlyVerifiedBotDeveloper: 1 << 17
+    EarlyVerifiedBotDeveloper: 1 << 17,
 } as const;
 
 export type UserFlags = number;

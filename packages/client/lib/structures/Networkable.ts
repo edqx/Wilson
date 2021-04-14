@@ -5,5 +5,7 @@ export class Networkable<BasicType = any> {
         this.patch(basic);
     }
 
-    patch(basic: Partial<BasicType>) { void basic; }
+    patch(basic: Partial<BasicType>) {
+        void basic;
+    }
 }

@@ -5,7 +5,10 @@ import { BasicEmoji } from "@wilsonjs/models";
 import { WilsonClient } from "../Client";
 
 export class EmojiCache extends Cache<Emoji> {
-    constructor(protected client: WilsonClient, entries?: ReadonlyArray<readonly [Snowflake, Emoji]>|null) {
+    constructor(
+        protected client: WilsonClient,
+        entries?: ReadonlyArray<readonly [Snowflake, Emoji]> | null
+    ) {
         super(client, entries);
     }
 
@@ -18,21 +21,20 @@ export class EmojiCache extends Cache<Emoji> {
         return emoji;
     }
 
-    update(basic: Partial<BasicEmoji>): [ Emoji|undefined, Emoji|undefined ] {
-        if (!basic.id)
-            return [ undefined, undefined ];
+    update(basic: Partial<BasicEmoji>): [Emoji | undefined, Emoji | undefined] {
+        if (!basic.id) return [undefined, undefined];
 
         const current = this.get(basic.id);
 
         if (!current) {
             const new_item = this.add(basic);
-            return [ undefined, new_item ];
+            return [undefined, new_item];
         }
 
         const old_item = Object.assign(Object.create(current), current);
 
         current.patch(basic);
 
-        return [ old_item, current ];
+        return [old_item, current];
     }
 }

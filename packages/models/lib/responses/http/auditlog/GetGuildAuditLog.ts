@@ -1,3 +1,3 @@
-import { BasicAuditLog } from "../../../basic"
+import { BasicAuditLog } from "../../../basic";
 
 export type GetGuildAuditLogResponse = BasicAuditLog;

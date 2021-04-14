@@ -11,18 +11,17 @@ import { ResumePayload } from "./ResumePayload";
 import { VoiceStateUpdatePayload } from "./VoiceStateUpdatePayload";
 
 type GatewayPayload =
-    DispatchPayload |
-    HeartbeatAckPayload |
-    HeartbeatPayload |
-    HelloPayload |
-    IdentifyPayload |
-    InvalidSessionPayload |
-    PresenceUpdatePayload |
-    ReconnectPayload |
-    RequestGuildMembersPayload |
-    ResumePayload |
-    VoiceStateUpdatePayload
-;
+    | DispatchPayload
+    | HeartbeatAckPayload
+    | HeartbeatPayload
+    | HelloPayload
+    | IdentifyPayload
+    | InvalidSessionPayload
+    | PresenceUpdatePayload
+    | ReconnectPayload
+    | RequestGuildMembersPayload
+    | ResumePayload
+    | VoiceStateUpdatePayload;
 
 export {
     GatewayPayload,
@@ -36,5 +35,5 @@ export {
     ReconnectPayload,
     RequestGuildMembersPayload,
     ResumePayload,
-    VoiceStateUpdatePayload
-}
+    VoiceStateUpdatePayload,
+};

@@ -5,5 +5,5 @@ export enum ChannelType {
     GroupDM,
     GuildCategory,
     GuildNews,
-    GuildStore
+    GuildStore,
 }

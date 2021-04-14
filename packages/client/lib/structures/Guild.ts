@@ -34,7 +34,11 @@ export class Guild extends Identifiable<BasicGuild> {
         }
 
         if (basic.roles !== undefined) {
-            this.roles = new MaskedCache(this.client, this.client.roles, new Set);
+            this.roles = new MaskedCache(
+                this.client,
+                this.client.roles,
+                new Set()
+            );
             for (const basic_role of basic.roles) {
                 const role = this.client.roles.add(this, basic_role);
                 this.roles.mask.add(role.id);
@@ -42,18 +46,38 @@ export class Guild extends Identifiable<BasicGuild> {
         }
 
         if (basic.members !== undefined) {
-            this.members = new MaskedCache(this.client, this.client.members, new Set);
+            this.members = new MaskedCache(
+                this.client,
+                this.client.members,
+                new Set()
+            );
             for (const basic_member of basic.members) {
-                const member = this.client.members.add(this, basic_member.user?.id || "", basic_member);
+                const member = this.client.members.add(
+                    this,
+                    basic_member.user?.id || "",
+                    basic_member
+                );
                 if (basic_member.user) this.members.mask.add(member.id);
             }
 
-            const member_ids = new Set([...basic.members.filter(member => member.user !== undefined).map(member => member.user?.id)]);
-            this.members = new MaskedCache(this.client, this.client.members, member_ids as Set<string>);
+            const member_ids = new Set([
+                ...basic.members
+                    .filter((member) => member.user !== undefined)
+                    .map((member) => member.user?.id),
+            ]);
+            this.members = new MaskedCache(
+                this.client,
+                this.client.members,
+                member_ids as Set<string>
+            );
         }
 
         if (basic.channels !== undefined) {
-            this.channels = new MaskedCache(this.client, this.client.channels, new Set);
+            this.channels = new MaskedCache(
+                this.client,
+                this.client.channels,
+                new Set()
+            );
             for (const basic_channel of basic.channels) {
                 const channel = this.client.channels.add(basic_channel);
                 this.channels.mask.add(channel.id);
@@ -61,7 +85,11 @@ export class Guild extends Identifiable<BasicGuild> {
         }
 
         if (basic.emojis !== undefined) {
-            this.emojis = new MaskedCache(this.client, this.client.emojis, new Set);
+            this.emojis = new MaskedCache(
+                this.client,
+                this.client.emojis,
+                new Set()
+            );
             for (const basic_emoji of basic.emojis) {
                 const emoji = this.client.emojis.add(basic_emoji);
                 this.emojis.mask.add(emoji.id);

@@ -7,7 +7,7 @@ export * from "./CreateGuildIntegration";
 export * from "./CreateGuildRole";
 export * from "./ModifyGuild";
 export * from "./ModifyGuildChannelPositions";
-export * from "./ModifyGuildIntegration"
+export * from "./ModifyGuildIntegration";
 export * from "./ModifyGuildMember";
 export * from "./ModifyGuildRole";
 export * from "./ModifyGuildRolePositions";

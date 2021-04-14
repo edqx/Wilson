@@ -1,4 +1,4 @@
 export enum IntegrationVisibility {
     None,
-    Everyone
+    Everyone,
 }

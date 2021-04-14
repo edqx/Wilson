@@ -10,7 +10,7 @@ export interface BasicAllowedMentions {
 
 export interface CreateMessageRequest {
     content?: string;
-    nonce?: number|string;
+    nonce?: number | string;
     tts?: boolean;
     embed?: BasicEmbed;
     allowed_mentions: BasicAllowedMentions;

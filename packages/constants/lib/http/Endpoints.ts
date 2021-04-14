@@ -11,12 +11,18 @@ export const ApiEndpoints = {
     GetChannelMessage: "/channels/{channel.id}/{message.id}",
     CreateMessage: "/channels/{channel.id}/messages",
     CrosspostMessage: "/channels/{channel.id}/messages/{message.id}/crosspost",
-    CreateReaction: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}/@me",
-    DeleteOwnReaction: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}/@me",
-    DeleteUserReaction: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}/@me/:user.id}",
-    GetReactions: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}",
-    DeleteAllReactions: "/channels/{channel.id}/messages/{message.id}/reactions",
-    DeleteAllReactionsForEmoji: "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}",
+    CreateReaction:
+        "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}/@me",
+    DeleteOwnReaction:
+        "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}/@me",
+    DeleteUserReaction:
+        "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}/@me/:user.id}",
+    GetReactions:
+        "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}",
+    DeleteAllReactions:
+        "/channels/{channel.id}/messages/{message.id}/reactions",
+    DeleteAllReactionsForEmoji:
+        "/channels/{channel.id}/messages/{message.id}/reactions/{emoji.name}",
     EditMessage: "/channels/{channel.id}/messages/{message.id}",
     DeleteMessage: "/channels/{channel.id}/messages/{message.id}",
     BulkDeleteMessages: "/channels/{channel.id}/messages/bulk-delete",
@@ -52,7 +58,8 @@ export const ApiEndpoints = {
     ModifyGuildMember: "/guilds/{guild.id}/members/{user.id}",
     ModifyCurrentUserNick: "/guilds/{guild.id}/members/@me/nick",
     AddGuildMemberRole: "/guilds/{guild.id}/members/{user.id}/roles/{role.id}",
-    RemoveGuildMemberRole: "/guilds/{guild.id}/members/{user.id}/roles/{role.id}",
+    RemoveGuildMemberRole:
+        "/guilds/{guild.id}/members/{user.id}/roles/{role.id}",
     RemoveGuildMember: "/guilds/{guild.id}/members/{user.id}",
     GetGuildBans: "/guilds/{guild.id}/bans",
     GetGuildBan: "/guilds/{guild.id}/bans/{user.id}",
@@ -71,7 +78,8 @@ export const ApiEndpoints = {
     CreateGuildIntegration: "/guilds/{guild.id}/integrations/{integration.id}",
     ModifyGuildIntegration: "/guilds/{guild.id}/integrations/{integration.id}",
     DeleteGuildIntegration: "/guilds/{guild.id}/integrations/{integration.id}",
-    SyncGuildIntegration: "/guilds/{guild.id}/integrations/{integration.id}/sync",
+    SyncGuildIntegration:
+        "/guilds/{guild.id}/integrations/{integration.id}/sync",
     GetGuildWidgetSettings: "/guilds/{guild.id}/widget",
     ModifyGuildWidget: "/guilds/{guild.id}/widget",
     GetGuildWidget: "/guilds/{guild.id}/widget.json",
@@ -111,41 +119,61 @@ export const ApiEndpoints = {
     DeleteWebhook: "/webhooks/{webhook.id}",
     DeleteWebhookWithToken: "/webhooks/{webhook.id}/{webhook.token}",
     ExecuteWebhook: "/webhooks/{webhook.id}/{webhook.token}",
-    ExecuteSlackCompatableWebhook: "/webhooks/{webhook.id}/{webhook.token}/slack",
-    ExecuteGithubCompatableWebhook: "/webhooks/{webhook.id}/{webhook.token}/github",
+    ExecuteSlackCompatableWebhook:
+        "/webhooks/{webhook.id}/{webhook.token}/slack",
+    ExecuteGithubCompatableWebhook:
+        "/webhooks/{webhook.id}/{webhook.token}/github",
     EditWebhookMessage: "/webhooks/{webhook.id}/{webhook.token}",
-    DeleteWebhookmessage: "/webhooks/{webhook.id}/{webook.token}/messages/{message.id}",
+    DeleteWebhookmessage:
+        "/webhooks/{webhook.id}/{webook.token}/messages/{message.id}",
 
     GetGlobalApplicationCommands: "/applications/{application.id}/commands",
     CreateGlobalApplicationCommand: "/applications/{application.id}/commands",
-    GetGlobalApplicationCommand: "/applications/{application.id}/commands/{command.id}",
-    EditGlobalApplicationCommand: "/applications/{application.id}/commands/{command.id}",
-    DeleteGlobalApplicationCommand: "/applications/{application.id}/commands/{command.id}",
-    GetGuildApplicationCommands: "/applications/{application.id}/guilds/{guild.id}/commands",
-    BulkOverwriteGlobalApplicationCommands: "/applications/{application.id}/commands",
-    CreateGuildApplicationCommand: "/applications/{application.id}/guilds/{guild.id}/commands",
-    GetGuildApplicationCommand: "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
-    EditGuildApplicationCommand: "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
-    DeleteGuildApplicationCommand: "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
-    BulkOverwriteGuildApplicationCommands: "/applications/{application.id}/guilds/{guild.id}/commands",
-    CreateInteractionResponse: "/interactions/{interaction.id}/{interaction.token}/callback",
-    EditOriginalInteractionResponse: "/interactions/{interaction.id}/{interaction.token}/messages/@original",
-    DeleteOriginalInteractionResponse: "/interactions/{interaction.id}/{interaction.token}/messages/@original",
+    GetGlobalApplicationCommand:
+        "/applications/{application.id}/commands/{command.id}",
+    EditGlobalApplicationCommand:
+        "/applications/{application.id}/commands/{command.id}",
+    DeleteGlobalApplicationCommand:
+        "/applications/{application.id}/commands/{command.id}",
+    GetGuildApplicationCommands:
+        "/applications/{application.id}/guilds/{guild.id}/commands",
+    BulkOverwriteGlobalApplicationCommands:
+        "/applications/{application.id}/commands",
+    CreateGuildApplicationCommand:
+        "/applications/{application.id}/guilds/{guild.id}/commands",
+    GetGuildApplicationCommand:
+        "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
+    EditGuildApplicationCommand:
+        "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
+    DeleteGuildApplicationCommand:
+        "/applications/{application.id}/guilds/{guild.id}/commands/{command.id}",
+    BulkOverwriteGuildApplicationCommands:
+        "/applications/{application.id}/guilds/{guild.id}/commands",
+    CreateInteractionResponse:
+        "/interactions/{interaction.id}/{interaction.token}/callback",
+    EditOriginalInteractionResponse:
+        "/interactions/{interaction.id}/{interaction.token}/messages/@original",
+    DeleteOriginalInteractionResponse:
+        "/interactions/{interaction.id}/{interaction.token}/messages/@original",
     CreateFollowupMessage: "/webhooks/{application.id}/{interaction.token}",
-    EditFollowupMessage: "/webhooks/{application.id}/{interaction.token}/messages/{message.id}",
-    DeleteFollowupMessage: "/webhooks/{application.id}/{interaction.token}/messages/{message.id}"
+    EditFollowupMessage:
+        "/webhooks/{application.id}/{interaction.token}/messages/{message.id}",
+    DeleteFollowupMessage:
+        "/webhooks/{application.id}/{interaction.token}/messages/{message.id}",
 } as const;
 
 export const CdnEndpoints = {
     CustomEmoji: "/emojis/{emoji.id}.{fmt}",
     GuildIcon: "/icons/{guild.id}/{guild_icon}.{fmt}",
     GuildSplash: "/splashes/{guild.id}/{guild_splash}{fmt}",
-    GuildDiscoverySplash: "/discovery-splashes/{guild.id}/{guild_discovery_splash}.{fmt}",
+    GuildDiscoverySplash:
+        "/discovery-splashes/{guild.id}/{guild_discovery_splash}.{fmt}",
     GuildBanner: "/banners/{guild.id}/{guild_banner}.{fmt}",
     DefaultUserAvatar: "/embed/avatars/{user_discriminator}.{fmt}",
     UserAvatar: "/avatars/{user.id}/{user_avatar}.{fmt}",
     ApplicationIcon: "/app-icon/{application.id}/{icon}.{fmt}",
     ApplicationAsset: "/app-assets/{application.id}/{asset_id}.{fmt}",
-    AchievementIcon: "/app-assets/{application.id}/{achievement_id}/icons/icon_hash.{fmt}",
+    AchievementIcon:
+        "/app-assets/{application.id}/{achievement_id}/icons/icon_hash.{fmt}",
     TeamIcon: "/team-icons/{team.id}/{team_icon}.{fmt}",
 } as const;

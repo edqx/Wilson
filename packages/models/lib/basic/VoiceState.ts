@@ -3,7 +3,7 @@ import { BasicGuildMember } from "./GuildMember";
 
 export interface BasicVoiceState {
     guild_id?: Snowflake;
-    channel_id: Snowflake|null;
+    channel_id: Snowflake | null;
     user_id: Snowflake;
     member?: BasicGuildMember;
     session_id: string;

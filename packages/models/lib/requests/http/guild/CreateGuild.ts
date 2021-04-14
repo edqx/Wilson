@@ -2,7 +2,7 @@ import {
     DefaultNotificationLevel,
     ExplicitContentFilterLevel,
     Snowflake,
-    VerificationLevel
+    VerificationLevel,
 } from "@wilsonjs/constants";
 
 import { BasicChannel, BasicRole } from "../../../basic";

@@ -2,8 +2,8 @@ import { GatewayOpcode, Snowflake } from "@wilsonjs/constants";
 import { BasePayload } from "./BasePayload";
 
 export interface VoiceStateUpdatePayloadData {
-    guild_id: Snowflake
-    channel_id: Snowflake|null;
+    guild_id: Snowflake;
+    channel_id: Snowflake | null;
     self_mute: boolean;
     self_deaf: boolean;
 }

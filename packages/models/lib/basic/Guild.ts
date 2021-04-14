@@ -1,4 +1,10 @@
-import { GuildFeature, ISOTimestamp, PermissionFlags, Snowflake, SystemChannelFlags } from "@wilsonjs/constants";
+import {
+    GuildFeature,
+    ISOTimestamp,
+    PermissionFlags,
+    Snowflake,
+    SystemChannelFlags,
+} from "@wilsonjs/constants";
 import { BasicChannel } from "./Channel";
 import { BasicEmoji } from "./Emoji";
 import { BasicGuildMember } from "./GuildMember";
@@ -10,18 +16,18 @@ import { BasicWelcomeScreen } from "./WelcomeScreen";
 
 export interface BasicGuild extends BasicIdentifiable {
     name: string;
-    icon: string|null;
-    icon_hash?: string|null;
-    splash: string|null;
-    discovery_splash: string|null;
+    icon: string | null;
+    icon_hash?: string | null;
+    splash: string | null;
+    discovery_splash: string | null;
     owner?: boolean;
     owner_id: Snowflake;
     permissions?: PermissionFlags;
     region: string;
-    afk_channel_id: Snowflake|null;
+    afk_channel_id: Snowflake | null;
     afk_timeout: number;
     widget_enabled?: boolean;
-    widget_channel_id?: Snowflake|null;
+    widget_channel_id?: Snowflake | null;
     verification_level: number;
     default_message_notifications: number;
     explicit_content_filter: number;
@@ -29,10 +35,10 @@ export interface BasicGuild extends BasicIdentifiable {
     emojis: BasicEmoji[];
     features: GuildFeature[];
     mfa_level: number;
-    application_id: Snowflake|null;
-    system_channel_id: Snowflake|null;
+    application_id: Snowflake | null;
+    system_channel_id: Snowflake | null;
     system_channel_Flags: SystemChannelFlags;
-    rules_channel_id: Snowflake|null;
+    rules_channel_id: Snowflake | null;
     joined_at?: ISOTimestamp;
     large?: boolean;
     unavailable?: boolean;
@@ -41,15 +47,15 @@ export interface BasicGuild extends BasicIdentifiable {
     members?: BasicGuildMember[];
     channels?: BasicChannel[];
     presences?: BasicPresenceUpdate[];
-    max_presences: number|null;
+    max_presences: number | null;
     max_members?: number;
-    vanity_url_code: string|null;
-    description: string|null;
-    banner: string|null;
+    vanity_url_code: string | null;
+    description: string | null;
+    banner: string | null;
     premium_tier: number;
     premium_subscription_count?: number;
     preferred_locale: string;
-    public_updates_channel_id: Snowflake|null;
+    public_updates_channel_id: Snowflake | null;
     max_video_channel_users?: number;
     approximate_member_count?: number;
     approximate_presence_count?: number;
@@ -61,13 +67,13 @@ export interface UnavailableGuild extends BasicIdentifiable {
 }
 
 export interface GuildPreview extends BasicIdentifiable {
-    name: string|null;
-    icon: string|null;
-    splash: string|null;
+    name: string | null;
+    icon: string | null;
+    splash: string | null;
     discovery_splash: string;
     emojis: BasicEmoji[];
     features: GuildFeature[];
     approximate_member_count: number;
     approximate_presence_count: number;
-    description: string|null;
+    description: string | null;
 }
