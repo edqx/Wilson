@@ -262,8 +262,9 @@ export class WilsonClient extends Emittery<ClientEvents> {
         this._socket.close();
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     async resume() {
-        void 0;
+        // TODO
     }
 
     private async heartbeat() {
