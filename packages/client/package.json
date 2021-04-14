@@ -15,5 +15,9 @@
     "node-fetch": "^2.6.1",
     "ws": "^7.4.4",
     "zlib-sync": "^0.1.7"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.10",
+    "@types/ws": "^7.4.1"
   }
 }

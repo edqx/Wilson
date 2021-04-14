@@ -57,6 +57,11 @@ export enum HttpResponse {
     NoContent = "",
 }
 
+export interface HttpRequestOptions extends RequestInit {
+    query?: Querystring;
+    type?: string;
+}
+
 export interface ClientEvents {
     connect: Record<string, never>;
     ready: Record<string, never>;
@@ -191,11 +196,6 @@ export interface ClientEvents {
     applicationCommandUpdate: Record<string, never>;
     applicationCommandDelete: Record<string, never>;
     interactionCreate: Record<string, never>;
-}
-
-export interface HTTPRequestOptions extends RequestInit {
-    query?: Querystring;
-    type?: string;
 }
 
 export class WilsonClient extends Emittery<ClientEvents> {
@@ -508,7 +508,7 @@ export class WilsonClient extends Emittery<ClientEvents> {
 
     async make<T = any>(
         method: HttpMethod,
-        options: HTTPRequestOptions,
+        options: HttpRequestOptions,
         path: string,
         ...params: any[]
     ): Promise<T> {
