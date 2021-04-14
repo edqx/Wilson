@@ -8,5 +8,5 @@
     "prepublishOnly": "yarn build"
   },
   "license": "Apache-2.0",
-  "gitHead": "f8f068c9fd1b77abdab25d33b10ad76929fbf660"
+  "gitHead": "9fe77175d44dedde026986b1c707be70b71005c1"
 }
