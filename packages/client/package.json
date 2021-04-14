@@ -8,5 +8,12 @@
     "prepublishOnly": "yarn build"
   },
   "license": "Apache-2.0",
-  "gitHead": "9fe77175d44dedde026986b1c707be70b71005c1"
+  "gitHead": "9fe77175d44dedde026986b1c707be70b71005c1",
+  "dependencies": {
+    "emittery": "^0.8.1",
+    "erlpack": "^0.1.3",
+    "node-fetch": "^2.6.1",
+    "ws": "^7.4.4",
+    "zlib-sync": "^0.1.7"
+  }
 }
