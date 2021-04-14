@@ -1,0 +1,12 @@
+{
+  "name": "@wilsonjs/client",
+  "version": "0.0.13",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p ./",
+    "build:ci": "yarn install && tsc -p ./",
+    "prepublishOnly": "yarn build"
+  },
+  "license": "Apache-2.0",
+  "gitHead": "9fe77175d44dedde026986b1c707be70b71005c1"
+}
