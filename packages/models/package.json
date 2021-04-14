@@ -1,6 +1,6 @@
 {
   "name": "@wilsonjs/models",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p ./",
@@ -9,7 +9,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@wilsonjs/constants": "^0.0.14"
+    "@wilsonjs/constants": "^0.0.15"
   },
   "gitHead": "9fe77175d44dedde026986b1c707be70b71005c1"
 }
