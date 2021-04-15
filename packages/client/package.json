@@ -10,6 +10,7 @@
   "license": "Apache-2.0",
   "gitHead": "262bb5c1e6c6197f91fef356598626c00ac362ad",
   "dependencies": {
+    "@discordjs/collection": "^0.1.6",
     "emittery": "^0.8.1",
     "erlpack": "^0.1.3",
     "node-fetch": "^2.6.1",
