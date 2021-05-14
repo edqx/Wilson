@@ -12,6 +12,7 @@
         "esModuleInterop": true,
         "moduleResolution": "Node",
         "declaration": true,
+        "sourceMap": true,
         "strictNullChecks": true
     },
     "filesGlob": [

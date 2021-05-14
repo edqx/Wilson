@@ -7,6 +7,9 @@
     "build:ci": "yarn install && tsc -p ./",
     "prepublishOnly": "yarn build"
   },
+  "files": [
+    "dist"
+  ],
   "license": "Apache-2.0",
   "gitHead": "262bb5c1e6c6197f91fef356598626c00ac362ad"
 }

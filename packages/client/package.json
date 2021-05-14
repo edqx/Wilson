@@ -25,5 +25,8 @@
     "@types/node-fetch": "^2.5.10",
     "@types/ws": "^7.4.1",
     "dotenv": "^8.2.0"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }

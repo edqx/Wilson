@@ -11,5 +11,8 @@
   "dependencies": {
     "@wilsonjs/constants": "^0.0.18"
   },
+  "files": [
+    "dist"
+  ],
   "gitHead": "262bb5c1e6c6197f91fef356598626c00ac362ad"
 }
